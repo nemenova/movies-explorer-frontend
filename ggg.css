@@ -37,7 +37,7 @@ width: 100%;
 }
 .about-project{
     background-color: #202020;
-    
+    padding: 110px 0 110px 0;
 }
 .section__container{
     display: flex;
@@ -47,7 +47,7 @@ width: 100%;
     max-width: 1280px;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 110px 0 110px 0;
+    
 }
 .about-project__description{
     display: flex;
@@ -74,6 +74,7 @@ margin: 0;
     padding: 0 0 26px;
 }
 .section__capture{
+    font-weight: 400;
     font-size: 14px;
     line-height: 1.43;
 }
@@ -122,8 +123,9 @@ padding-top: 14px;
 
 .technologies{
     background-color: #272727;
+    padding: 100px 0 100px 0;
 }
-.tech-list{
+.tech__list{
     list-style-type: none;
     display: flex;
     justify-content: space-between;
@@ -131,7 +133,7 @@ padding-top: 14px;
     margin: auto;
     padding: 0;
 }
-.tech-item{
+.tech__item{
     background-color: #303030;
     border-radius: 10px;
     width: 90px;
@@ -141,18 +143,126 @@ padding-top: 14px;
     justify-content: center;
     margin: 0;
 }
-.tech-title{
+.section__subtitle{
     font-size: 50px;
     font-weight: 400;
 line-height: 1.16;
-text-align: center;
 letter-spacing: -0.04em;
 margin: 0;
-padding: 100px 0 26px;
+}
+.subtitle_place_tech{
+    text-align: center;
+    margin: 0;
+    padding: 100px 0 26px;
 }
 .centered-capture{
     max-width: 460px;
     text-align: center;
     margin: 0 auto;
     padding-bottom: 100px;
+}
+
+
+.student{
+    background-color: #202020;
+    padding: 110px 0 125px 0;
+}
+.student__container{
+display: flex;
+justify-content: space-between;
+align-items: end;
+}
+.student__info{
+    max-width: 600px;
+}
+.student__avatar{
+    width: 270px;
+    height: 327px;
+}
+.subtitle_place_student{
+text-align: left;
+padding: 66px 0 18px;
+}
+.student__about{
+    font-weight: 500;
+font-size: 18px;
+line-height: 1.11;
+margin: 0;
+padding-bottom: 26px;
+}
+.capture_place_student{
+    line-height: 1.57;
+    
+}
+.social-media{
+display: flex;
+padding-top: 99px;
+}
+.social-media__link{
+text-decoration: none;
+color: inherit;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+padding-right: 20px;
+}
+.student__portfolio{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.11;
+    padding: 100px 0 30px;
+color: #8B8B8B;
+}
+.student__list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.student__item{
+    background-image: url(./movies-explorer/src/images/text__COLOR_font-main.png);
+background-repeat: no-repeat;
+background-position: right;
+background-size: 16px 16px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.67;
+    letter-spacing: -0.04em;
+    border-bottom: #424242 1px solid;
+    /* width: 100vw; */
+    justify-content: center;
+    margin: 0;
+    padding: 20px 0 19px;
+}
+.footer{
+background-color: #202020;
+padding-top: 79px;
+}
+.footer__credits{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #8B8B8B;
+    border-bottom: #424242 1px solid;
+    padding-bottom: 20px;
+}
+.footer__text{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.footer__copyright{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+.footer__link{
+text-decoration: none;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;
+color: inherit;
+font-style: normal;
+padding-left: 20px;
 }
