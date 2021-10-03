@@ -181,8 +181,111 @@
         </section>
         <section class="cards">
             <div class="section__container">
-                
+                <ul class="cards__list">
+                    <li class="card">
+                        <button class="card__saved"></button>
+                        <div class="card-btn">
+                            <!-- <button class="card__save-btn">Сохранить</button> -->
+                            <!-- <button class="card__delete-btn"></button> -->
+                        </div>
+                        <img src="./movies-explorer/src/images/cardImage.png" alt="" class="card__image">
+                        <div class="card__content">
+                            <h4 class="card__title">33 слова о дизайне</h4>
+                            <span class="card__duration">1ч 17м</span>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <button class="card__saved"></button>
+                        <div class="card-btn">
+                            <!-- <button class="card__save-btn">Сохранить</button> -->
+                            <!-- <button class="card__delete-btn"></button> -->
+                        </div>
+                        <img src="./movies-explorer/src/images/card_Image2.png" alt="" class="card__image">
+                        <div class="card__content">
+                            <h4 class="card__title">Gimme Danger: История Игги и The Stooges</h4>
+                            <span class="card__duration">1ч 17м</span>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <button class="card__saved"></button>
+                        <div class="card-btn">
+                            <!-- <button class="card__save-btn">Сохранить</button> -->
+                            <!-- <button class="card__delete-btn"></button> -->
+                        </div>
+                        <img src="./movies-explorer/src/images/cardImage.png" alt="" class="card__image">
+                        <div class="card__content">
+                            <h4 class="card__title">Дженис: Маленькая девочка грустит</h4>
+                            <span class="card__duration">1ч 17м</span>
+                        </div>
+                    </li>
+                    <li class="card">
+                        <button class="card__saved"></button>
+                        <div class="card-btn">
+                            <!-- <button class="card__save-btn">Сохранить</button> -->
+                            <!-- <button class="card__delete-btn"></button> -->
+                        </div>
+                        <img src="./movies-explorer/src/images/cardImage.png" alt="" class="card__image">
+                        <div class="card__content">
+                            <h4 class="card__title">Книготорговцы</h4>
+                            <span class="card__duration">1ч 17м</span>
+                        </div>
+                    </li>
+                </ul>
+                <button class="cards__more">Ещё</button>
             </div>
+        </section>
+        <section class="profile">
+
+            <div class="profile__container">
+                <p class="hello">Привет, Виталий!</p>
+                <ul class="profile__list">
+                    <li class="profile__item">
+                        <p class="profile__text">
+                            Имя
+                        </p>
+                        <p class="profile__text">
+                            Виталий
+                        </p>
+                    </li>
+                    <li class="profile__item">
+                        <p class="profile__text">
+                            E-mail
+                        </p>
+                        <p class="profile__text">
+                            pochta@yandex.ru
+                        </p>
+                    </li>
+                </ul>
+                <a href="#" class="profile__link-edit">Редактировать</a>
+                <a href="#" class="profile__link-exit">Выйти из аккаунта</a>
+            </div>
+
+        </section>
+        <section class="welcome">
+
+            <div class="welcome__container">
+                <img class="welcome__logo" src="./movies-explorer/src/images/logo.svg" alt="">
+                <p class="hello">Добро пожаловать!</p>
+                <form class="welcome__form">
+                    <fieldset class="welcome__form">
+                        
+                        <label class="welcome__text" for="text-input">Имя</label>
+                        <input class="welcome__input" type="text" id="name-input" required>
+                        <span class="welcome__error"></span>
+                        
+                        <label class="welcome__text" for="text-input">E-mail</label>
+                        <input class="welcome__input" type="email" id="email-input" required>
+                        <span class="welcome__error"></span>
+
+                        <label class="welcome__text" for="text-input">Пароль</label>
+                        <input class="welcome__input" type="password" id="password-input" required>
+                        <span class="welcome__error"></span>
+                    </fieldset>
+                    <submit class="welcome__submit-btn">Зарегистрироваться</submit>
+                    </form>
+                <span class="welcome__span">Уже зарегистрированы? <a href="#" class="welcome__link-entrance">Войти</a></span> 
+            </div>
+
         </section>
     </main>
     <footer class="footer">
