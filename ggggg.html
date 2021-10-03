@@ -13,6 +13,20 @@
 </head>
 
 <body>
+    <header class="header">
+        <div class="header__container">
+            <img src="./movies-explorer/src/images/logo.svg" alt="" class="header__logo">
+            <nav class="header__tabs">
+                <a href="#" class="header__tab_films">Фильмы</a>
+                <a href="#" class="header__tab_saved-films">Сохранённые фильмы</a>
+            </nav>
+            <nav class="header__links">
+                <a href="#" class="header__link_reg">Регистрация</a>
+                <button class="header__entrance-btn"><a href="#" class="header__link_entrance">Войти</a></button>
+                <button class="header__account-btn"><a href="#" class="header__link_account">Аккаунт</a></button>
+            </nav>
+        </div>
+    </header>
     <main class="content">
         <section class="promo">
             <div class="promo__container">
@@ -103,26 +117,28 @@
                 <h2 class="section__title">Студент</h2>
                 <div class="student__container">
                     <div class="student__info">
-                
-                <h3 class="section__subtitle subtitle_place_student">Виталий</h3>
-                <p class="student__about">
-                    Фронтенд-разработчик, 30 лет
-                </p>
-                <span class="section__capture capture_place_student">Я родился и живу в Саратове, закончил факультет
-                    экономики СГУ. У меня есть жена
-                    и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в
-                    компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься
-                    фриланс-заказами и ушёл с постоянной работы.</span>
-                    <address class="social-media">
-                        <a href="#" class="social-media__link">Facebook</a>
-                        <a href="#" class="social-media__link">Github</a>
-                    </address>
+
+                        <h3 class="section__subtitle subtitle_place_student">Виталий</h3>
+                        <p class="student__about">
+                            Фронтенд-разработчик, 30 лет
+                        </p>
+                        <span class="section__capture capture_place_student">Я родился и живу в Саратове, закончил
+                            факультет
+                            экономики СГУ. У меня есть жена
+                            и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года
+                            работал в
+                            компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься
+                            фриланс-заказами и ушёл с постоянной работы.</span>
+                        <address class="social-media">
+                            <a href="#" class="social-media__link">Facebook</a>
+                            <a href="#" class="social-media__link">Github</a>
+                        </address>
+                    </div>
+                    <img src="./movies-explorer/src/images/pic__COLOR_pic.png" alt="фото" class="student__avatar">
                 </div>
-                <img src="./movies-explorer/src/images/pic__COLOR_pic.png" alt="фото" class="student__avatar">
-                </div>
-                    <span class="student__portfolio">
-                        Портфолио
-                    </span>
+                <span class="student__portfolio">
+                    Портфолио
+                </span>
                 <ul class="student__list">
                     <li>
                         <a href="#" class="student__item">
@@ -142,25 +158,51 @@
                 </ul>
             </div>
         </section>
-        <footer class="footer">
-            <div class="section__container">
-                <span class="footer__credits">
-                    Учебный проект Яндекс.Практикум х BeatFilm.
-                </span>
-                <div class="footer__text">
-                    <p class="footer__copyright">&copy; 2020</p>
-                    <address class="footer__links">
-                        <a href="#" class="footer__link">Яндекс.Практикум</a>
-                        <a href="#" class="footer__link">Github</a>
-                        <a href="#" class="footer__link">Facebook</a>
+        <section class="search">
+            <div class="search__block-container">
+                <div class="search__container">
+                    <form class="search__form">
+                        <fieldset class="search__form">
+                            <input type="search" name="q" placeholder="Фильм" class="search__input">
+                            <input type="submit" value=" " class="search__submit">
+                            <div class="checkbox__container">
+                                <label class="checkbox__label">
+                                    <input type="checkbox" class="checkbox">
+                                    <div class="checkbox__knobs"></div>
+                                    <div class="checkbox__layer"></div>
 
-                    </address>
+                                </label>
+                                <span class="checkbox__option">Короткометражки</span>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
-            
-
-        </footer>
+        </section>
+        <section class="cards">
+            <div class="section__container">
+                
+            </div>
+        </section>
     </main>
+    <footer class="footer">
+        <div class="section__container">
+            <span class="footer__credits">
+                Учебный проект Яндекс.Практикум х BeatFilm.
+            </span>
+            <div class="footer__text">
+                <p class="footer__copyright">&copy; 2020</p>
+                <address class="footer__links">
+                    <a href="#" class="footer__link">Яндекс.Практикум</a>
+                    <a href="#" class="footer__link">Github</a>
+                    <a href="#" class="footer__link">Facebook</a>
+
+                </address>
+            </div>
+        </div>
+
+
+    </footer>
 </body>
 
 </html>
