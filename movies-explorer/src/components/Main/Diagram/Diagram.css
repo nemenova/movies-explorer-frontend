@@ -1,0 +1,40 @@
+.diagram {
+  display: flex;
+  justify-content: stretch;
+}
+.diagram__backend-container {
+  justify-content: center;
+  width: 30%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.diagram__frontend-container {
+  justify-content: center;
+  width: 70%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.diagram__backend {
+  background-color: #3ddc84;
+  width: 100%;
+}
+.diagram__frontend {
+  background-color: #303030;
+  width: 100%;
+}
+.diagram__text {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+.diagram__text_black {
+  color: black;
+}
+.diagram__capture {
+  font-size: 14px;
+  line-height: 1.21;
+  color: #8b8b8b;
+  padding-top: 14px;
+}

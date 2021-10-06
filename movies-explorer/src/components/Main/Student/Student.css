@@ -1,0 +1,36 @@
+.student {
+  background-color: #202020;
+  padding: 110px 0 125px 0;
+}
+.student__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.student__info {
+  max-width: 600px;
+}
+.student__avatar {
+  width: 270px;
+  height: 327px;
+}
+.student__about {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+  margin: 0;
+  padding-bottom: 26px;
+}
+.student__social-media {
+  display: flex;
+  padding-top: 99px;
+}
+.student__social-media-link {
+  text-decoration: none;
+  color: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  padding-right: 20px;
+}

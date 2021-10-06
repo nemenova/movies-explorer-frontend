@@ -1,0 +1,22 @@
+.technologies {
+  background-color: #272727;
+  padding: 100px 0 100px 0;
+}
+.tech__list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  width: 690px;
+  margin: auto;
+  padding: 0;
+}
+.tech__item {
+  background-color: #303030;
+  border-radius: 10px;
+  width: 90px;
+  height: 60px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}

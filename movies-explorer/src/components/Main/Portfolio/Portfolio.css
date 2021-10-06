@@ -1,0 +1,31 @@
+.portfolio {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.11;
+    padding: 100px 0 30px;
+    color: #8b8b8b;
+  }
+  .portfolio__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .portfolio__item {
+    background-image: url(./movies-explorer/src/images/text__COLOR_font-main.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 16px 16px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.67;
+    letter-spacing: -0.04em;
+    border-bottom: #424242 1px solid;
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    padding: 20px 0 19px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  

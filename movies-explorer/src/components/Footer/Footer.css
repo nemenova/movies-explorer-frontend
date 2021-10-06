@@ -1,0 +1,37 @@
+.footer {
+  background-color: #202020;
+  padding-top: 79px;
+  display: flex;
+  font-family: "Inter";
+  font-weight: 400;
+  color: white;
+  flex-direction: column;
+}
+.footer__credits {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #8b8b8b;
+  border-bottom: #424242 1px solid;
+  padding-bottom: 20px;
+}
+.footer__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__copyright {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+.footer__link {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: inherit;
+  font-style: normal;
+  padding-left: 20px;
+}

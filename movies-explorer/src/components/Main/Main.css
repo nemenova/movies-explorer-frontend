@@ -1,0 +1,74 @@
+.content {
+  display: flex;
+  font-family: "Inter";
+  font-weight: 400;
+  color: white;
+  flex-direction: column;
+}
+.section__container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 70px * 2);
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.section__text {
+  width: 49%;
+  padding: 70px 0 110px;
+  margin: auto;
+}
+.section__title {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  border-bottom: #dadada 1px solid;
+  margin: 0;
+  padding-bottom: 23px;
+}
+.section__paragraph {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  margin: 0;
+  padding: 0 0 26px;
+}
+.section__capture {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+}
+.section__subtitle {
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.subtitle_place_tech {
+  text-align: center;
+  margin: 0;
+  padding: 100px 0 26px;
+}
+.centered-capture {
+  max-width: 460px;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+.subtitle_place_student {
+  text-align: left;
+  padding: 66px 0 18px;
+}
+.capture_place_student {
+  line-height: 1.57;
+}
+.hello {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin: 0;
+  padding: 40px 0 16px;
+}
