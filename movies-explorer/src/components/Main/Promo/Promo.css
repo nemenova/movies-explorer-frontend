@@ -6,7 +6,7 @@
   width: 100%;
 }
 .promo__container {
-  background-image: url(./movies-explorer/src/images/text__COLOR_landing-logo.svg);
+  background-image: url(../../../images/decorPromo.svg);
   background-repeat: no-repeat;
   box-sizing: border-box;
   background-position: right bottom;

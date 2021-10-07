@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../Header/Header'
-import SearchForm from '../Movies/SearchForm/SearchForm'
-import CardList from './SavedMoviesCardList/SavedMoviesCardList'
+import SearchForm from './SearchForm/SearchForm'
+import CardList from './MoviesCardList/MoviesCardList'
 
 
-function SavedMovies(props) {
+function Movies(props) {
    
 
     return (
@@ -13,10 +13,11 @@ function SavedMovies(props) {
             <Header />
             <SearchForm />
             <CardList />
+            <button className="cards__more">Ещё</button>
         </div>
     </section>
     )
 
 }
 
-export default SavedMovies;
+export default Movies;

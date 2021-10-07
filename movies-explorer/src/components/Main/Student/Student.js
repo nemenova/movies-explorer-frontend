@@ -1,7 +1,7 @@
 import React from 'react';
-import Portfolio from './Portfolio/Portfolio'
+import Portfolio from '../Portfolio/Portfolio'
 import { Link } from 'react-router-dom';
-import StudentAvatar from '../../images/pic__COLOR_pic.png'
+import StudentAvatar from '../../../images/studentPhoto.png'
 
 function Student() {
 

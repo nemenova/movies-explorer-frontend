@@ -2,13 +2,12 @@ import React from 'react';
 import cardImg from '../../../images/cardImage.png'
 
 
-function MoviesCard(props) {
+function MoviesCardSaved(props) {
 
     return (
         <li className="card">
-            <button className="card__saved"></button>
             <div className="card-btn">
-                <button class="card__save-btn">Сохранить</button>
+            <button class="card__delete-btn"></button>
             </div>
             <img src={cardImg} alt="" className="card__image" />
             <div className ="card__content">
@@ -20,6 +19,4 @@ function MoviesCard(props) {
 
 }
 
-export default MoviesCard;
-
-
+export default MoviesCardSaved;

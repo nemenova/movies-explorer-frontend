@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from '../../images/logo.svg'
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 function Header(props) {
-    const location = useLocation();
+    // const location = useLocation();
 
     return (
         <header claclassNamess="header">

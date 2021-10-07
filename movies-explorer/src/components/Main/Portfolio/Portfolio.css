@@ -11,7 +11,7 @@
     margin: 0;
   }
   .portfolio__item {
-    background-image: url(./movies-explorer/src/images/text__COLOR_font-main.png);
+    background-image: url(../../../images/studentPhoto.png);
     background-repeat: no-repeat;
     background-position: right;
     background-size: 16px 16px;

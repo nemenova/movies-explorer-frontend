@@ -1,5 +1,5 @@
 import React from 'react';
-import Diagram from './Diagram/Diagram'
+import Diagram from '../Diagram/Diagram'
 
 function AboutProject() {
 

@@ -21,7 +21,7 @@
   top: 14px;
   right: 14px;
   border: none;
-  background-image: url(./movies-explorer/src/images/icon__saved.svg);
+  background-image: url(../../../images/icon__saved.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-color: #ee3465;
@@ -38,7 +38,7 @@
   top: 14px;
   right: 14px;
   border: none;
-  background-image: url(./movies-explorer/src/images/icon_delete.png);
+  background-image: url(../../../images/icon_delete.png);
   background-position: center;
   background-repeat: no-repeat;
   background-color: #313131;
