@@ -7,7 +7,7 @@ function MoviesCardSaved(props) {
     return (
         <li className="card">
             <div className="card-btn">
-            <button class="card__delete-btn"></button>
+            <button className="card__delete-btn"></button>
             </div>
             <img src={cardImg} alt="" className="card__image" />
             <div className ="card__content">

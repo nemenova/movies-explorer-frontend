@@ -5,7 +5,7 @@
 .student__container {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
 }
 .student__info {
   max-width: 600px;

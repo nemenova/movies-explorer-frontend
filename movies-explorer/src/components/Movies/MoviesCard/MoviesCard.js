@@ -8,7 +8,7 @@ function MoviesCard(props) {
         <li className="card">
             <button className="card__saved"></button>
             <div className="card-btn">
-                <button class="card__save-btn">Сохранить</button>
+                <button className="card__save-btn">Сохранить</button>
             </div>
             <img src={cardImg} alt="" className="card__image" />
             <div className ="card__content">

@@ -6,13 +6,20 @@
   color: white;
   flex-direction: column;
 }
+.header_place_promo{
+  background-color: #073042;
+  padding: 18px 0;
+  font-family: "Inter";
+  font-weight: 400;
+  color: white;
+  flex-direction: column;
+}
 .header__logo {
   width: 38px;
   height: 38px;
 }
 .header__tabs {
   padding-left: 44px;
-  /* display: none; */
 }
 .header__tab_films {
   font-weight: 500;
@@ -35,7 +42,6 @@
   margin-left: auto;
 }
 .header__link_reg {
-  display: none;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -44,20 +50,18 @@
   padding-right: 30px;
 }
 .header__entrance-btn {
-  display: none;
   width: 76px;
   height: 32px;
   background-color: #3ddc84;
   border-radius: 3px;
   border: none;
   padding: 0;
-  /* display: flex; */
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 .header__link_entrance {
-  /* display: none; */
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -74,7 +78,6 @@
   border-radius: 20px;
   border: none;
   color: inherit;
-  /* display: none; */
 }
 .header__link_account {
   font-weight: 500;

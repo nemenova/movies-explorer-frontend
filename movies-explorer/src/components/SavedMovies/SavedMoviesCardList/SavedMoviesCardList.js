@@ -1,10 +1,8 @@
 import React from 'react';
 import Card from '../SavedMoviesCard/SavedMoviesCard'
-import { NavLink, useLocation } from 'react-router-dom';
 
 
 function SavedMoviesCardList(props) {
-    const location = useLocation();
 
     return (
         <section className="cards">

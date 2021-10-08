@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 // import { CurrentUserContext } from '../contexts/CurrentUserContext';
 // import './App.css';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -13,9 +13,8 @@ import Footer from '../Footer/Footer';
 
 function App() {
   return (
-    // <CurrentUserContext.Provider>
     <>
-      <Header />
+      
       <Switch>
         <Route exact path="/">
           <Main />

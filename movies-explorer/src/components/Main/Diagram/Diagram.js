@@ -8,7 +8,7 @@ function Diagram() {
                 <div className="diagram__backend">
                     <p className="diagram__text diagram__text_black">1 неделя</p>
                 </div>
-                <span clasclassNames="diagram__capture">Back-end</span>
+                <span className="diagram__capture">Back-end</span>
             </div>
             <div className="diagram__frontend-container">
                 <div className="diagram__frontend">

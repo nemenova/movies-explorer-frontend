@@ -6,7 +6,7 @@
 }
 .search__container {
   display: flex;
-  width: calc(100% - 70px * 2);
+  width: 100%;
   max-width: 1280px;
   margin: 70px auto;
   box-sizing: border-box;
@@ -45,7 +45,7 @@
   background-color: #4285f4;
   background-image: url(../../../images/icon-search-white.svg);
   background-repeat: no-repeat;
-  width: 22px;
+  width: 24px;
   height: 22px;
   border-radius: 50%;
   margin-right: 19px;

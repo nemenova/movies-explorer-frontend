@@ -11,7 +11,7 @@
     margin: 0;
   }
   .portfolio__item {
-    background-image: url(../../../images/studentPhoto.png);
+    background-image: url(../../../images/arrow-up-right.png);
     background-repeat: no-repeat;
     background-position: right;
     background-size: 16px 16px;
@@ -21,7 +21,7 @@
     letter-spacing: -0.04em;
     border-bottom: #424242 1px solid;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 0;
     padding: 20px 0 19px;
     text-decoration: none;

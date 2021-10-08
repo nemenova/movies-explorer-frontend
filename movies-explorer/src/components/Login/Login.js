@@ -6,18 +6,19 @@ import logo from '../../images/logo.svg'
 function Login(props) {
 
     return (
-        <section clasclassNames="welcome">
+        <main className="content">
+        <section className="welcome">
 
             <div className="welcome__container">
                 <img className="welcome__logo" src={logo} alt="логотип" />
                 <p className="hello">Рады видеть!</p>
                 <form className="welcome__form">
                     <fieldset className="welcome__form">
-                        <label className="welcome__text" for="text-input">E-mail</label>
+                        <label className="welcome__text" htmlFor="text-input">E-mail</label>
                         <input className="welcome__input" type="email" id="email-input" required />
                         <span className="welcome__error"></span>
 
-                        <label className="welcome__text" for="text-input">Пароль</label>
+                        <label className="welcome__text" htmlFor="text-input">Пароль</label>
                         <input className="welcome__input" type="password" id="password-input" required />
                         <span className="welcome__error"></span>
                     </fieldset>
@@ -27,6 +28,7 @@ function Login(props) {
             </div>
 
         </section>
+        </main>
     )
 }
 

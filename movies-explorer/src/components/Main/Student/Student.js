@@ -7,7 +7,7 @@ function Student() {
 
     return (
         <section className="student">
-            <div claclassNamess="section__container">
+            <div className="section__container">
                 <h2 className="section__title">Студент</h2>
                 <div className="student__container">
                     <div className="student__info">

@@ -11,7 +11,7 @@ function Techs(props) {
                 <span className="section__capture centered-capture">На курсе веб-разработки мы освоили технологии, которые
                     применили
                     в дипломном проекте.</span>
-                <ul claclassNamess="tech__list">
+                <ul className="tech__list">
                     <li>
                         <p className="tech__item">
                             HTML
