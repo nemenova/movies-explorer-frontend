@@ -11,17 +11,17 @@ function Portfolio() {
             </span>
             <ul className="portfolio__list">
                 <li>
-                    <Link to="/https://github.com/nemenova" className="portfolio__item">
+                    <Link to="/https://github.com/nemenova" className="portfolio__item btn-opacity-change">
                         Статичный сайт
                     </Link>
                 </li>
                 <li>
-                    <Link to="/https://github.com/nemenova" className="portfolio__item">
+                    <Link to="/https://github.com/nemenova" className="portfolio__item btn-opacity-change">
                         Адаптивный сайт
                     </Link>
                 </li>
                 <li>
-                    <Link to="/https://github.com/nemenova" className="portfolio__item">
+                    <Link to="/https://github.com/nemenova" className="portfolio__item btn-opacity-change">
                         Одностраничное приложение
                     </Link>
                 </li>

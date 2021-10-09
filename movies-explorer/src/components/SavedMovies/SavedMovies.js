@@ -13,7 +13,6 @@ function SavedMovies(props) {
             <section className="cards">
                 <div className="section__container">
                     <CardList />
-                    <button className="cards__more">Ещё</button>
                 </div>
             </section>
         </main >

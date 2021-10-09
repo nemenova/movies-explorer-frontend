@@ -9,9 +9,9 @@ function MoviesCard(props) {
         <>
             {movieList.map((i) => (
                 <li className="card">
-                    <button className="card__saved"></button>
+                    <button className="card__saved btn-opacity-change"></button>
                     <div className="card-btn">
-                        <button className="card__save-btn">Сохранить</button>
+                        <button className="card__save-btn btn-opacity-change">Сохранить</button>
                     </div>
                     <img src={cardImg} alt={i.img.alt} className="card__image" />
                     <div className="card__content">

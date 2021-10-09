@@ -13,7 +13,7 @@ function Movies(props) {
             <SearchForm />
             <section className="cards">
                 <CardList />
-                <button className="cards__more">Ещё</button>
+                <button className="cards__more btn-opacity-change">Ещё</button>
             </section>
         </main >
     )

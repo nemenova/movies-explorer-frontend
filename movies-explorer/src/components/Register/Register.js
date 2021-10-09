@@ -29,7 +29,7 @@ function Register(props) {
                     </fieldset>
                     <button type='submit' className="welcome__submit-btn">Зарегистрироваться</button>
                 </form>
-                <span className="welcome__span">Уже зарегистрированы? <NavLink to="/signin" className="welcome__link">Войти</NavLink></span>
+                <span className="welcome__span">Уже зарегистрированы? <NavLink to="/signin" className="welcome__link btn-opacity-change">Войти</NavLink></span>
             </div>
 
         </section>

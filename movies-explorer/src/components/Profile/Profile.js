@@ -7,7 +7,6 @@ function Profile(props) {
     return (
         <main className="content">
         <section className="profile">
-
             <div className="profile__container">
                 <p className="hello">Привет, Виталий!</p>
                 <ul className="profile__list">
@@ -28,8 +27,8 @@ function Profile(props) {
                         </p>
                     </li>
                 </ul>
-                <NavLink to="/signup"  className="profile__link-edit">Редактировать</NavLink>
-                <NavLink to="/" className="profile__link-exit">Выйти из аккаунта</NavLink>
+                <NavLink to="/signup"  className="profile__link-edit btn-opacity-change">Редактировать</NavLink>
+                <NavLink to="/" className="profile__link-exit btn-opacity-change">Выйти из аккаунта</NavLink>
             </div>
 
         </section>

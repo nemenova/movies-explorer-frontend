@@ -73,6 +73,15 @@
   margin: 0;
   padding: 40px 0 16px;
 }
+.btn-opacity-change{
+  transition: opacity 0.3s linear 0s;
+}
+.btn-opacity-change:hover{
+  opacity: .6;
+}
+.btn-opacity-change:focus{
+  outline: none;
+}
 @media screen and (max-width: 1023px) {
   .section__container {
     width: calc(100% - 50px * 2);

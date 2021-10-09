@@ -24,8 +24,8 @@ function Student() {
                             компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься
                             фриланс-заказами и ушёл с постоянной работы.</p>
                         <address className="student__social-media">
-                            <Link to="/https://www.facebook.com/" href="#" className="student__social-media-link">Facebook</Link>
-                            <Link to="/https://github.com/nemenova" href="#" className="student__social-media-link">Github</Link>
+                            <Link to="/https://www.facebook.com/" href="#" className="student__social-media-link btn-opacity-change">Facebook</Link>
+                            <Link to="/https://github.com/nemenova" href="#" className="student__social-media-link btn-opacity-change">Github</Link>
                         </address>
                     </div>
                     <img src={StudentAvatar} alt="фото" className="student__avatar" />

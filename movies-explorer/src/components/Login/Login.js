@@ -24,7 +24,7 @@ function Login(props) {
                     </fieldset>
                     <submit className="welcome__submit-btn welcome__submit-btn_back">Войти</submit>
                 </form>
-                <span className="welcome__span">Ещё не зарегистрированы? <NavLink to="/signup" className="welcome__link">Регистрация</NavLink></span>
+                <span className="welcome__span">Ещё не зарегистрированы? <NavLink to="/signup" className="welcome__link btn-opacity-change">Регистрация</NavLink></span>
             </div>
 
         </section>
