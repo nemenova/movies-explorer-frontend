@@ -7,8 +7,8 @@ function MoviesCard(props) {
 
     return (
         <>
-            {movieList.map((i) => (
-                <li className="card">
+            {movieList.map((i, index) => (
+                <li key={index} className="card">
                     <button className="card__saved btn-opacity-change"></button>
                     <div className="card-btn">
                         <button className="card__save-btn btn-opacity-change">Сохранить</button>

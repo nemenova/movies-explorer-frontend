@@ -16,9 +16,11 @@
   background-size: 22px 22px;
   background-position: 19px center;
   padding: 25px 30px 25px 50px;
+  border-radius: 9px;
 }
 .search {
   background-color: #202020;
+  padding: 0;
 }
 .search__input {
   background-color: transparent;
@@ -127,9 +129,33 @@
 }
 @media screen and (max-width: 768px) {
   .search__block-container {
-    border-bottom: #424242 1px solid;
-    margin: 0 auto;
     width: calc(100% - 30px * 2);
-    max-width: 1280px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .search__block-container {
+    width: calc(100% - 10px * 2);
+    
+  }
+  .checkbox__container {
+    max-height: fit-content;
+    border-left: none;
+    transform: translateY(90px);
+    position: absolute;
+    padding-left: 0;
+  }
+  .search__container {
+    background-image: none;
+    max-height: 80px;
+    padding: 25px 19px;
+    margin: 80px auto 109px;
+  }
+  .search__form {
+    justify-content: center;
+  }
+  .search__submit {
+    width: 36px;
+    height: 34px;
+
   }
 }

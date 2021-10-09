@@ -82,3 +82,17 @@
     max-height: 16px;
   }
 }
+@media screen and (max-width: 600px) {
+  .card__content {
+    padding: 16px 0 0;
+  }
+  .card__image {
+    width: 300px;
+  }
+  .card__title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 16px;
+  }
+}
