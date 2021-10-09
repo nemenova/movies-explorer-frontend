@@ -8,9 +8,9 @@ function Techs(props) {
             <div className="section__container">
                 <h2 className="section__title">Технологии</h2>
                 <h3 className="section__subtitle subtitle_place_tech">7 технологий</h3>
-                <span className="section__capture centered-capture">На курсе веб-разработки мы освоили технологии, которые
+                <p className="section__capture centered-capture">На курсе веб-разработки мы освоили технологии, которые
                     применили
-                    в дипломном проекте.</span>
+                    в дипломном проекте.</p>
                 <ul className="tech__list">
                     <li>
                         <p className="tech__item">

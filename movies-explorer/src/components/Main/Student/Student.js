@@ -16,13 +16,13 @@ function Student() {
                         <p className="student__about">
                             Фронтенд-разработчик, 30 лет
                         </p>
-                        <span className="section__capture capture_place_student">Я родился и живу в Саратове, закончил
+                        <p className="section__capture capture_place_student">Я родился и живу в Саратове, закончил
                             факультет
                             экономики СГУ. У меня есть жена
                             и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года
                             работал в
                             компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься
-                            фриланс-заказами и ушёл с постоянной работы.</span>
+                            фриланс-заказами и ушёл с постоянной работы.</p>
                         <address className="student__social-media">
                             <Link to="/https://www.facebook.com/" href="#" className="student__social-media-link">Facebook</Link>
                             <Link to="/https://github.com/nemenova" href="#" className="student__social-media-link">Github</Link>
