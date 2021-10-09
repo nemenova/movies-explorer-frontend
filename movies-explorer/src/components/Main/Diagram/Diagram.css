@@ -38,3 +38,17 @@
   color: #8b8b8b;
   padding-top: 14px;
 }
+@media screen and (max-width: 600px) {
+  .diagram__text {
+    font-size: 11px;
+  }
+  .diagram__capture {
+    font-size: 11px;
+  }
+  .diagram__backend-container {
+    width: 36%;
+  }
+  .diagram__frontend-container {
+    width: 64%;
+  }
+}

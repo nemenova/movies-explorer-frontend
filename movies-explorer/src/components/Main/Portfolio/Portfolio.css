@@ -30,8 +30,16 @@
 }
 @media screen and (max-width: 768px) {
   .portfolio__item {
-    font-size: 30px;
     line-height: 1.79;
     border-bottom: #e5e5e5 1px solid;
+  }
+}
+@media screen and (max-width: 600px) {
+  .portfolio {
+    font-size: 14px;
+    padding: 69px 0 20px;
+  }
+  .portfolio__item {
+    font-size: 18px;
   }
 }

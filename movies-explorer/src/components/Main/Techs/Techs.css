@@ -1,12 +1,13 @@
 .technologies {
   background-color: #272727;
-  padding: 100px 0 100px 0;
+  padding: 100px 0;
 }
 .tech__list {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  max-width: 700px;
   margin: auto;
   padding: 0;
 }
@@ -27,4 +28,17 @@
     height: 57px;
   }
 }
-
+@media screen and (max-width: 675px) {
+  .technologies {
+    padding: 60px 0 70px 0;
+  }
+  .tech__item {
+  }
+  .tech__list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 10px;
+    column-gap: 10px;
+    width: calc(84px * 2 + 10px);
+  }
+}

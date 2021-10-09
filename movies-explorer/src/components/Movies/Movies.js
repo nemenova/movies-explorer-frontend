@@ -12,10 +12,8 @@ function Movies(props) {
             <Header />
             <SearchForm />
             <section className="cards">
-                {/* <div className="section__container"> */}
-                    <CardList />
-                    <button className="cards__more">Ещё</button>
-                {/* </div> */}
+                <CardList />
+                <button className="cards__more">Ещё</button>
             </section>
         </main >
     )

@@ -31,5 +31,23 @@
     background-size: 680px 280px;
     min-height: 844px;
     background-position: center bottom;
+    width: calc(100% - 50px * 2);
+  }
+}
+@media screen and (max-width: 600px) {
+  .promo__title {
+    font-size: 31px;
+    padding-top: 183px;
+    max-width: 318px;
+    max-height: 117px;
+    line-height: 1.26;
+    letter-spacing: -0.04em;
+    margin: 0 auto;
+  }
+  .promo__container {
+    width: 100%;
+    overflow: hidden;
+    min-height: 630px;
+    margin: 0 auto;
   }
 }

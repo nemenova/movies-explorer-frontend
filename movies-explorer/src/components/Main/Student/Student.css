@@ -39,3 +39,28 @@
     max-width: 363px;
   }
 }
+@media screen and (max-width: 600px) {
+  .student__container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .student__info {
+    max-width: 292px;
+    order: 2;
+  }
+  .student__avatar {
+    width: 292px;
+    height: 352px;
+    order: 1;
+    padding-top: 60px;
+  }
+  .student__about {
+    font-size: 11px;
+  }
+  .student__social-media {
+    padding-top: 40px;
+  }
+  .student {
+    padding: 70px 0;
+  }
+}
