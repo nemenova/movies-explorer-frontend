@@ -23,7 +23,7 @@
     background: #BFE2FF;
     border-radius: 100%;
     position: relative;
-    border: 10px solid #337AB7;
+    border: 10px solid #3DDC84;
     animation: preloader-6-rotation 2s linear infinite;
 }
 @keyframes preloader-rotation {
@@ -37,13 +37,13 @@
 .preloader .preloader__circle .preloader__inner {
     width: 200px;
     height: 200px;
-    background: #337AB7;
+    background: #3DDC84;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 100%;
-    box-shadow: 0 -130px 0 -75px #337AB7;
+    box-shadow: 0 -130px 0 -75px #3DDC84;
     animation: preloader-6-switch 8s ease-in-out infinite;
 }
 @keyframes preloader-switch {
@@ -52,27 +52,27 @@
         transform: translateX(-50%) translateY(-50%);
         width: 200px;
         height: 200px;
-        box-shadow: 0 -130px 0 -75px #337AB7;
+        box-shadow: 0 -130px 0 -75px #3DDC84;
     }
     25% {
         top: 50%;
         transform: translateX(-50%) translateY(-50%);
         width: 200px;
         height: 200px;
-        box-shadow: 0 -130px 0 -75px #337AB7;
+        box-shadow: 0 -130px 0 -75px #3DDC84;
     }
     50% {
         top: calc(100% - 55px);
         width: 50px;
         height: 50px;
-        box-shadow: 0 -130px 0 75px #337AB7;
+        box-shadow: 0 -130px 0 75px #3DDC84;
         transform: translateX(-50%) translateY(0);
     }
     75% {
         top: calc(100% - 55px);
         width: 50px;
         height: 50px;
-        box-shadow: 0 -130px 0 75px #337AB7;
+        box-shadow: 0 -130px 0 75px #3DDC84;
         transform: translateX(-50%) translateY(0);
     }
     100% {
@@ -80,6 +80,6 @@
         transform: translateX(-50%) translateY(-50%);
         width: 200px;
         height: 200px;
-        box-shadow: 0 -130px 0 -75px #337AB7;
+        box-shadow: 0 -130px 0 -75px #3DDC84;
     }
 }

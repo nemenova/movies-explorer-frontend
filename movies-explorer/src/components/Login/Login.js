@@ -10,7 +10,7 @@ function Login(props) {
         <section className="welcome">
 
             <div className="welcome__container">
-                <img className="welcome__logo" src={logo} alt="логотип" />
+            <NavLink to="/"><img className="welcome__logo" src={logo} alt="логотип" /></NavLink>
                 <p className="hello">Рады видеть!</p>
                 <form className="welcome__form">
                     <fieldset className="welcome__form">

@@ -28,7 +28,7 @@ function Header(props) {
 
             <header className={`${location.pathname === '/' ? 'header_place_promo' : 'header'}`}>
                 <div className="header__container">
-                    <img src={logo} alt="логотип" className="header__logo btn-opacity-change"></img>
+                    <NavLink to="/"><img src={logo} alt="логотип" className="header__logo btn-opacity-change"></img></NavLink>
                     {loggedIn ?
                         (<>
                             {mobile ?

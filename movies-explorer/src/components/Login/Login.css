@@ -1,6 +1,7 @@
 .welcome {
   background-color: #202020;
   padding: 70px 0 65px;
+  height: 100vh;
 }
 .welcome__container {
   max-width: 396px;
