@@ -14,9 +14,9 @@
   box-sizing: border-box;
 }
 .section__text {
-  width: 49%;
+  max-width: 550px;
   padding: 70px 0 110px;
-  margin: auto;
+  margin: 0;
 }
 .section__title {
   font-size: 22px;
@@ -71,4 +71,27 @@
   text-align: center;
   margin: 0;
   padding: 40px 0 16px;
+}
+@media screen and (max-width: 768px) {
+  .section__container {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 50px * 2);
+    max-width: 1280px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .section__capture {
+    font-size: 12px;
+  }
+  .section__text {
+    max-width: 319px;
+    padding: 70px 0 93px;
+  }
+  .centered-capture {
+    padding-bottom: 83px;
+  }
+  .subtitle_place_student {
+    font-size: 40px;
+  }
 }

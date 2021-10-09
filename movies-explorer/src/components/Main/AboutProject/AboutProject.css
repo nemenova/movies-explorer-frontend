@@ -4,4 +4,16 @@
 }
 .about-project__description {
   display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .promo__title {
+    text-align: center;
+    padding-top: 300px;
+  }
+  .promo__container {
+    background-size: 680px 280px;
+    min-height: 844px;
+    background-position: center bottom;
+  }
 }

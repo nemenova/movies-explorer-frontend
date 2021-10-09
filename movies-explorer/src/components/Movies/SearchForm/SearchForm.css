@@ -51,7 +51,7 @@
   margin-right: 19px;
   background-position: center;
 }
-.search__option {
+.checkbox__option {
   font-weight: 400;
   font-size: 13px;
   line-height: 1.38;
@@ -124,4 +124,12 @@
   display: flex;
   box-sizing: border-box;
   padding-left: 30px;
+}
+@media screen and (max-width: 768px) {
+  .search__block-container {
+    border-bottom: #424242 1px solid;
+    margin: 0 auto;
+    width: calc(100% - 30px * 2);
+    max-width: 1280px;
+  }
 }

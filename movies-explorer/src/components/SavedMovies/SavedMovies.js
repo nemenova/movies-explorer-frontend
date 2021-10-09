@@ -5,16 +5,18 @@ import CardList from './SavedMoviesCardList/SavedMoviesCardList'
 
 
 function SavedMovies(props) {
-   
 
     return (
-        <section className="cards">
-        <div className="section__container">
+        <main className="content">
             <Header />
             <SearchForm />
-            <CardList />
-        </div>
-    </section>
+            <section className="cards">
+                <div className="section__container">
+                    <CardList />
+                    <button className="cards__more">Ещё</button>
+                </div>
+            </section>
+        </main >
     )
 
 }

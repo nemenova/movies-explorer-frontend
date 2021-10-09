@@ -6,10 +6,11 @@
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
+  margin: auto;
   padding: 0;
   row-gap: 60px;
   column-gap: 30px;
+  width: calc(100% - 70px * 2);
   justify-content: space-between;
 }
 .cards__more {
@@ -27,4 +28,10 @@
   color: inherit;
   border-radius: 6px;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .cards__list {
+    width: calc(100% - 30px * 2);
+    row-gap: 47px;
+  }
 }

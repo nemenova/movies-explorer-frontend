@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 function Profile(props) {
 
     return (
+        <main className="content">
         <section className="profile">
 
             <div className="profile__container">
@@ -32,6 +33,7 @@ function Profile(props) {
             </div>
 
         </section>
+        </main>
     )
 
 }

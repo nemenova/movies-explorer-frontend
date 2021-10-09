@@ -4,14 +4,14 @@
 }
 .diagram__backend-container {
   justify-content: center;
-  width: 30%;
+  width: 20%;
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 .diagram__frontend-container {
   justify-content: center;
-  width: 70%;
+  width: 80%;
   align-items: center;
   display: flex;
   flex-direction: column;
