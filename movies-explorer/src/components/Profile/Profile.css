@@ -23,7 +23,7 @@
   justify-content: space-between;
 }
 .profile__text {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 11px;
   line-height: 13px;
   margin: 16px 0;
@@ -46,4 +46,12 @@
   font-size: 13px;
   line-height: 16px;
   text-align: center;
+}
+@media screen and (max-width: 600px) {
+  .profile__container {
+    max-width: calc(100% - 30px * 2);
+  }
+  .profile__list {
+    padding: 64px 0 379px;
+  }
 }

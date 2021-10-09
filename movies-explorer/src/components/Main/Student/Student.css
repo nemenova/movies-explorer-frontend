@@ -34,7 +34,7 @@
   line-height: 17px;
   padding-right: 20px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .student__info {
     max-width: 363px;
   }

@@ -13,7 +13,7 @@
 .error__number {
   font-weight: 400;
   font-size: 140px;
-  line-height: 169px;
+  line-height: 1;
   text-align: center;
   margin: 0;
 }
@@ -28,7 +28,19 @@
   color: #4285f4;
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1;
   position: absolute;
   bottom: 60px;
+}
+@media screen and (max-width: 600px) {
+  .error__number {
+    font-size: 80px;
+  }
+  .error__span {
+    font-size: 12px;
+  }
+  .error__link {
+    font-size: 12px;
+    bottom: 30px;
+  }
 }

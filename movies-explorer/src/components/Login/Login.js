@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../images/logo.svg'
+import logo from '../../images/logo.png'
 
 
 function Login(props) {
@@ -22,7 +22,7 @@ function Login(props) {
                         <input className="welcome__input" type="password" id="password-input" required />
                         <span className="welcome__error"></span>
                     </fieldset>
-                    <submit className="welcome__submit-btn welcome__submit-btn_back">Войти</submit>
+                    <button type='submit' className="welcome__submit-btn welcome__submit-btn_back">Войти</button>
                 </form>
                 <span className="welcome__span">Ещё не зарегистрированы? <NavLink to="/signup" className="welcome__link btn-opacity-change">Регистрация</NavLink></span>
             </div>

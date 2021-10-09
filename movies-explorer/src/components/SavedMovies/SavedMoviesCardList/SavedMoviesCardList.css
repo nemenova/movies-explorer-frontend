@@ -11,7 +11,7 @@
   row-gap: 60px;
   column-gap: 30px;
   width: calc(100% - 70px * 2);
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .cards__more {
   width: 360px;

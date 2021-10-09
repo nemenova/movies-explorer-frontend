@@ -1,8 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-// import { CurrentUserContext } from '../contexts/CurrentUserContext';
-// import './App.css';
-// import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -15,33 +12,36 @@ import Footer from '../Footer/Footer';
 function App() {
   return (
     <>
-      
+
       <Switch>
         <Route exact path="/">
           <Main />
+          <Footer />
         </ Route>
         <Route path="/movies">
-<Movies />
+          <Movies />
+          <Footer />
         </ Route>
         <Route path="/saved-movies">
-<SavedMovies />
+          <SavedMovies />
+          <Footer />
         </ Route>
         <Route path="/profile">
-<Profile />
+          <Profile />
         </ Route>
         <Route path="/signup">
-<Register />
+          <Register />
         </ Route>
         <Route path="/signin">
-<Login />
+          <Login />
         </ Route>
         <Route path="*">
           <NotFound />
         </Route>
       </Switch>
-      <Footer />
-</>
-  
+
+    </>
+
   );
 }
 

@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Header from '../Header/Header';
 
 
 function Profile(props) {
 
     return (
         <main className="content">
+             <Header />
         <section className="profile">
             <div className="profile__container">
                 <p className="hello">Привет, Виталий!</p>

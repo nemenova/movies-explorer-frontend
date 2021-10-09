@@ -11,9 +11,7 @@ function SavedMovies(props) {
             <Header />
             <SearchForm />
             <section className="cards">
-                <div className="section__container">
-                    <CardList />
-                </div>
+                <CardList />
             </section>
         </main >
     )
