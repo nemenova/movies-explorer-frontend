@@ -9,7 +9,7 @@
   top: 14px;
   right: 14px;
   border: none;
-  background-image: url(../../../images/icon_delete.png);
+  background-image: url(../../../images/icon_delete.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-color: #313131;
@@ -52,7 +52,7 @@
   box-sizing: border-box;
   padding: 14px 14px 0;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 810px) {
   .card__content {
     padding: 25px 0 0;
   }

@@ -11,9 +11,9 @@
   margin: 70px auto;
   box-sizing: border-box;
   background-color: #222222;
-  background-image: url(../../../images/icon-search-grey.png);
+  background-image: url(../../../images/icon-search-grey.svg);
   background-repeat: no-repeat;
-  background-size: 22px 22px;
+  background-size: 18px 18px;
   background-position: 19px center;
   padding: 25px 30px 25px 50px;
   border-radius: 9px;
@@ -25,7 +25,7 @@
 .search__input {
   background-color: transparent;
   border: none;
-  width: 80%;
+  
 }
 .search__input::placeholder {
   font-family: inherit;
@@ -40,18 +40,21 @@
   border: none;
   display: flex;
   width: 100%;
+  align-items: center;
 }
 .search__submit {
   background-color: transparent;
   border: none;
   background-color: #4285f4;
-  background-image: url(../../../images/icon-search-white.png);
+  background-image: url(../../../images/icon-search-white.svg);
   background-repeat: no-repeat;
-  width: 24px;
-  height: 22px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   margin-right: 19px;
+  margin-left: auto;
   background-position: center;
+  padding: 0;
 }
 .checkbox__option {
   font-weight: 400;
@@ -124,6 +127,7 @@
   max-height: fit-content;
   border-left: #505050 1px solid;
   display: flex;
+  align-items: center;
   box-sizing: border-box;
   padding-left: 30px;
 }
@@ -151,10 +155,5 @@
   }
   .search__form {
     justify-content: center;
-  }
-  .search__submit {
-    width: 36px;
-    height: 34px;
-
   }
 }

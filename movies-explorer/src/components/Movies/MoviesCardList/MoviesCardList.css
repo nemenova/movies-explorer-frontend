@@ -7,9 +7,9 @@
   row-gap: 60px;
   column-gap: 30px;
   width: calc(100% - 70px * 2);
-  justify-content: space-between;
+  justify-content: space-around;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .cards__list {
     width: calc(100% - 30px * 2);
     row-gap: 47px;
@@ -20,8 +20,5 @@
     width: calc(100% - 10px * 2);
     row-gap: 39px;
     justify-content: center;
-  }
-  .cards__more {
-    width: 240px;
   }
 }
