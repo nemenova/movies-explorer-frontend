@@ -1,7 +1,7 @@
 class Api {
     constructor(options) {
         this._address = options.baseUrl;
-        this._token = options.headers;
+        this._headers = options.headers;
     }
 
     _checkResponse(res) {
@@ -10,71 +10,75 @@ class Api {
         }
         return Promise.reject(`${res.status}`);
     }
-    getCards() {
-        return fetch(`${this._address}/cards`, {
+    getMovies() {
+        return fetch(`${this._address}/movies`, {
+            method: 'GET',
+            headers: this._headers,
             credentials: 'include',
         })
-            .then(this._checkResponse) 
+            .then(this._checkResponse)
     }
     getUserInfo() {
         return fetch(`${this._address}/users/me`, {
+            method: 'GET',
+            headers: this._headers,
             credentials: 'include',
-        
+
         })
             .then(this._checkResponse)
     }
     changeUserInfo(user) {
-        return fetch(`${this._address}/users/me`,  {
+        return fetch(`${this._address}/users/me`, {
             method: 'PATCH',
             credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: this._headers,
             body: JSON.stringify({
                 name: user.name,
-                about: user.about
-            })
-                
-        }).then(this._checkResponse)
-    }
-    addNewCard(card) {
-        return fetch(`${this._address}/cards`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: card.name,
-                link: card.link
+                email: user.email
             })
 
         }).then(this._checkResponse)
     }
-    changeProfilePhoto(data) {
-        return fetch(`${this._address}/users/me/avatar`, {
-            method: 'PATCH',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                avatar: data.avatar
-            })
+    // addNewCard(card) {
+    //     return fetch(`${this._address}/cards`, {
+    //         method: 'POST',
+    //         credentials: 'include',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             name: card.name,
+    //             link: card.link
+    //         })
 
-        }).then(this._checkResponse)
-    }
-    deleteCard(id) {
-        return fetch(`${this._address}/cards/${id}`, {
+    //     }).then(this._checkResponse)
+    // }
+    // changeProfilePhoto(data) {
+    //     return fetch(`${this._address}/users/me/avatar`, {
+    //         method: 'PATCH',
+    //         credentials: 'include',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             avatar: data.avatar
+    //         })
+
+    //     }).then(this._checkResponse)
+    // }
+    deleteMovie(movieId) {
+        return fetch(`${this._address}/movies/${movieId}`, {
             method: 'DELETE',
+            headers: this._headers,
             credentials: 'include',
-            
+
         }).then(this._checkResponse)
     }
 
-    changeLikeCardStatus(id, isLiked) {
+    changeSaveMovieStatus(id, isSaved) {
         return fetch(`${this._address}/cards/${id}/likes`, {
-            method: isLiked ? "DELETE" : "PUT",
+            headers: this._headers,
+            method: isSaved ? "DELETE" : "PUT",
             credentials: 'include',
 
         }).then(this._checkResponse)
@@ -82,5 +86,8 @@ class Api {
 }
 const api = new Api({
     baseUrl: 'http://localhost:3001/',
+    headers: {
+        'Content-Type': 'application/json',
+      },
 })
 export default api;

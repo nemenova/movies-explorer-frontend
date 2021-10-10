@@ -8,27 +8,38 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import NotFound from '../Errors/ErrorNotFound'
 import Footer from '../Footer/Footer';
+import ProtectedRoute from "./ProtectedRoute";
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function App() {
-  return (
-    <>
+  const [currentUser, setCurrentUser] = React.useState({});
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
+
+
+
+
+
+
+  return (
+
+    <CurrentUserContext.Provider value={currentUser}>
       <Switch>
         <Route exact path="/">
           <Main />
           <Footer />
         </ Route>
-        <Route path="/movies">
+        <ProtectedRoute path="/movies">
           <Movies />
           <Footer />
-        </ Route>
-        <Route path="/saved-movies">
+        </ ProtectedRoute>
+        <ProtectedRoute path="/saved-movies">
           <SavedMovies />
           <Footer />
-        </ Route>
-        <Route path="/profile">
+        </ ProtectedRoute>
+        <ProtectedRoute path="/profile">
           <Profile />
-        </ Route>
+        </ ProtectedRoute>
         <Route path="/signup">
           <Register />
         </ Route>
@@ -40,8 +51,8 @@ function App() {
         </Route>
       </Switch>
 
-    </>
 
+    </CurrentUserContext.Provider>
   );
 }
 
