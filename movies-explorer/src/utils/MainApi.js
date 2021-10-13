@@ -13,7 +13,6 @@ class Api {
     getMovies() {
         return fetch(`${this._address}/movies`, {
             method: 'GET',
-            headers: this._headers,
             credentials: 'include',
         })
             .then(this._checkResponse)
@@ -21,7 +20,6 @@ class Api {
     getUserInfo() {
         return fetch(`${this._address}/users/me`, {
             method: 'GET',
-            headers: this._headers,
             credentials: 'include',
 
         })
@@ -39,33 +37,7 @@ class Api {
 
         }).then(this._checkResponse)
     }
-    // addNewCard(card) {
-    //     return fetch(`${this._address}/cards`, {
-    //         method: 'POST',
-    //         credentials: 'include',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             name: card.name,
-    //             link: card.link
-    //         })
-
-    //     }).then(this._checkResponse)
-    // }
-    // changeProfilePhoto(data) {
-    //     return fetch(`${this._address}/users/me/avatar`, {
-    //         method: 'PATCH',
-    //         credentials: 'include',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             avatar: data.avatar
-    //         })
-
-    //     }).then(this._checkResponse)
-    // }
+    
     deleteMovie(movieId) {
         return fetch(`${this._address}/movies/${movieId}`, {
             method: 'DELETE',
@@ -75,12 +47,24 @@ class Api {
         }).then(this._checkResponse)
     }
 
-    changeSaveMovieStatus(id, isSaved) {
-        return fetch(`${this._address}/cards/${id}/likes`, {
+    saveMovie(movie) {
+        return fetch(`${this._address}/movies`, {
             headers: this._headers,
-            method: isSaved ? "DELETE" : "PUT",
+            method: "POST",
             credentials: 'include',
-
+            body: JSON.stringify({
+                country: movie.country || 'null',
+                director: movie.director || 'null',
+                duration: movie.duration,
+                year: movie.year,
+                description: movie.description,
+                image: `https://api.nomoreparties.co${movie.image.url}`,
+                trailer: movie.trailerLink,
+                thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
+                movieId: movie.id.toString(),
+                nameRU: movie.nameRU,
+                nameEN: movie.nameEN || 'null',
+            }),
         }).then(this._checkResponse)
     }
 }
@@ -88,6 +72,6 @@ const api = new Api({
     baseUrl: 'http://localhost:3001/',
     headers: {
         'Content-Type': 'application/json',
-      },
+    },
 })
 export default api;

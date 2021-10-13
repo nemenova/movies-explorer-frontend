@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://nemenova.nomoredomains.rocks';
+export const BASE_URL = 'http://localhost:3000';
 
 function checkResponse(res) {
     if (res.status === 200 || 201) {
@@ -7,7 +7,7 @@ function checkResponse(res) {
     return Promise.reject(`${res.status}`);
 }
 
-export const register = (password, email) => {
+export const register = (password, email, name) => {
     return fetch(`${BASE_URL}/signup`, {
         method: 'POST',
         credentials: 'include',
@@ -16,7 +16,7 @@ export const register = (password, email) => {
             'Content-Type': 'application/json'
         },
         body:
-            JSON.stringify({ password, email })
+            JSON.stringify({ password, email, name })
     })
         .then(checkResponse)
 };
@@ -34,7 +34,7 @@ export const authorize = (password, email) => {
         .then(checkResponse)
 };
 
-export const getContent = () => {
+export const checkToken = () => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'GET',
         credentials: 'include',
@@ -43,7 +43,7 @@ export const getContent = () => {
 }
 export const signOut = () => {
     return fetch(`${BASE_URL}/signout`, {
-        method: 'GET',
+        method: 'DELETE',
         credentials: 'include',
     })
         .then(checkResponse)
