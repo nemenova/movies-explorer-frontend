@@ -27,18 +27,16 @@
     width: 84px;
     height: 57px;
   }
-}
-@media screen and (max-width: 675px) {
-  .technologies {
-    padding: 60px 0 70px 0;
-  }
-  .tech__item {
-  }
   .tech__list {
     flex-wrap: wrap;
     justify-content: flex-start;
     row-gap: 10px;
     column-gap: 10px;
     width: calc(84px * 2 + 10px);
+  }
+}
+@media screen and (max-width: 600px) {
+  .technologies {
+    padding: 60px 0 70px 0;
   }
 }

@@ -11,7 +11,7 @@
   margin: 0;
 }
 .portfolio__item {
-  background-image: url(../../../images/arrow-up-right.png);
+  background-image: url(../../../images/arrow-up-right.svg);
   background-repeat: no-repeat;
   background-position: right;
   background-size: 16px 16px;

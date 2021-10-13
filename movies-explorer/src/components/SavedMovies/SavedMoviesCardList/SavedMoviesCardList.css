@@ -11,7 +11,7 @@
   row-gap: 60px;
   column-gap: 30px;
   width: calc(100% - 70px * 2);
-  justify-content: flex-start;
+  justify-content: space-around;
 }
 .cards__more {
   width: 360px;
@@ -29,13 +29,13 @@
   border-radius: 6px;
   cursor: pointer;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .cards__list {
     width: calc(100% - 30px * 2);
     row-gap: 47px;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .cards__list {
     width: calc(100% - 10px * 2);
     row-gap: 39px;

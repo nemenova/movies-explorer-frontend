@@ -11,7 +11,7 @@ function Search(props) {
                 <div className="search__container">
                     <form className="search__form">
                         <fieldset className="search__form">
-                            <input type="search" name="q" placeholder="Фильм" className="search__input" />
+                            <input type="search" name="q" placeholder="Фильм" className="search__input" required/>
                             <input type="submit" value=" " className="search__submit btn-opacity-change" />
                             <div className="checkbox__container">
                                 <label className="checkbox__label">

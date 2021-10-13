@@ -34,18 +34,20 @@
   line-height: 17px;
   padding-right: 20px;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1050px) {
   .student__info {
     max-width: 363px;
+    margin-right: 50px;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .student__container {
     flex-wrap: wrap;
     justify-content: center;
   }
   .student__info {
     max-width: 292px;
+    margin-right: 0;
     order: 2;
   }
   .student__avatar {
