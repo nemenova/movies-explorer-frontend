@@ -8,8 +8,8 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import NotFound from '../Errors/ErrorNotFound'
 import Footer from '../Footer/Footer';
-import ProtectedRoute from "./ProtectedRoute";
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
