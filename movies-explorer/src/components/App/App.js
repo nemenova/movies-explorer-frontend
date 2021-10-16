@@ -22,11 +22,13 @@ function App() {
   const [isError, setIsError] = React.useState('');
   const [savedMovies, setSavedMovies] = React.useState([]);
 
-
+  console.log(loggedIn)
+debugger
   React.useEffect(() => {
     Auth.checkToken()
       .then((res) => {
         if (res) {
+          debugger
           setLoggedIn(true);
         }
       })
@@ -36,8 +38,26 @@ function App() {
       });
   }, [loggedIn]);
 
+  // const tokenCheck = React.useCallback(() => {
+  //   Auth.checkToken()
+  //     .then((res) => {
+  //       if (res) {
+  //         setLoggedIn(true);
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       // history.push('/');
+  //       console.log(e);
+  //     });
+  // }, [history]);
+
+  // React.useEffect(() => {
+  //   tokenCheck();
+  // }, [tokenCheck]);
+
   React.useEffect(() => {
     if (loggedIn) {
+      debugger
       Promise.all([api.getUserInfo(), api.getMovies()])
         .then(([userData, moviesData]) => {
           setCurrentUser(userData);
@@ -45,23 +65,28 @@ function App() {
         })
         .catch((e) => console.log(e));
     }
+    return
   }, [loggedIn]);
 
   function handleRegister(password, email, name) {
     Auth.register(password, email, name)
       .then(() => {
+        debugger
         history.push('/');
+        setLoggedIn(true);
+        handleSignIn(password, email)
       })
       .catch((err) => {
         console.log(err);
         setIsError(err);
+        setLoggedIn(false);
       })
   }
   function handleSignOut() {
     Auth.signOut()
       .then(() => {
         setLoggedIn(false);
-        history.push('/signin');
+        history.push('/');
         setCurrentUser({ email: '', name: '' });
       })
       .catch((err) => {
@@ -79,6 +104,7 @@ function App() {
       .catch((err) => {
         setIsError(err);
         console.log(err)
+        setLoggedIn(false);
       })
   }
   function handleUpdateUser(user) {
@@ -124,7 +150,8 @@ function App() {
         <ProtectedRoute path="/edit-profile"
         component={EditProfile}
         onEditProfile={handleUpdateUser} 
-        loggedIn={loggedIn} isError={isError} 
+        loggedIn={loggedIn} 
+        isError={isError} 
         >
       
         </ ProtectedRoute>
@@ -132,7 +159,7 @@ function App() {
           <Register onRegister={handleRegister} isError={isError} />
         </ Route>
         <Route path="/signin">
-          <Login onLogin={handleSignIn} />
+          <Login onLogin={handleSignIn} isError={isError}/>
         </ Route>
         <Route path="*">
           <NotFound />

@@ -20,7 +20,7 @@ function Profile({loggedIn, onSignOut}) {
                             Имя
                         </p>
                         <p className="profile__text">
-                            Виталий
+                            {name}
                         </p>
                     </li>
                     <li className="profile__item">
@@ -28,7 +28,7 @@ function Profile({loggedIn, onSignOut}) {
                             E-mail
                         </p>
                         <p className="profile__text">
-                            pochta@yandex.ru
+                            {email}
                         </p>
                     </li>
                 </ul>

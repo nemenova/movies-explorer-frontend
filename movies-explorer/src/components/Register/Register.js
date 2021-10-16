@@ -23,11 +23,12 @@ function Register({onRegister, isError}) {
                     <fieldset className="welcome__form">
 
                         <label className="welcome__text" htmlFor="text-input">Имя</label>
-                        <input pattern="/[^`a-zа-яё -]/iu" onChange={handleChange} className="welcome__input" type="text" name='name' id="name-input" autoComplete='off' minLength='2' maxLength='40' required />
+                        <input pattern="/[^`a-zа-яё -]/iu" onChange={handleChange} className="welcome__input" 
+                        type="text" name='name' id="name-input" autoComplete='off' minLength='2' maxLength='40' required />
                         <span className="welcome__error">{errors.name}</span>
 
                         <label className="welcome__text" htmlFor="text-input">E-mail</label>
-                        <input onChange={handleChange} value={values.email}
+                        <input onChange={handleChange} value={values.email} autoComplete='off'
                         className="welcome__input" type="email" id="email-input" name='email' required />
                         <span className="welcome__error">{errors.email}</span>
 
@@ -36,6 +37,7 @@ function Register({onRegister, isError}) {
                         className="welcome__input" type="password" id="password-input" name='password' minLength='8' required />
                         <span className="welcome__error">{errors.password}</span>
                     </fieldset>
+                    {isError ? (<span className="profile__error">При попытке регистрации произошла ошибка.</span>) : null}
                     <button type='submit' className={`${isValid ? 'welcome__submit-btn btn-opacity-change' : 'welcome__submit-btn_disabled'}`} disabled={!isValid}>Зарегистрироваться</button>
                 </form>
                 <span className="welcome__span">Уже зарегистрированы? <NavLink to="/signin" className="welcome__link btn-opacity-change">Войти</NavLink></span>
