@@ -46,7 +46,7 @@ function Login(props) {
                                 className="welcome__input" type="password" id="password-input" required />
                             <span className="welcome__error">{errors.password}</span>
                         </fieldset>
-                        <button type='submit' className={`welcome__submit-btn_back ${isValid ? 'welcome__submit-btn' : 'welcome__submit-btn_disabled'}`}>Войти</button>
+                        <button type='submit' className={`welcome__submit-btn_back  ${isValid ? 'welcome__submit-btn btn-opacity-change' : 'welcome__submit-btn_disabled'}`} disabled={!isValid}>Войти</button>
                     </form>
                     <span className="welcome__span">Ещё не зарегистрированы? <NavLink to="/signup" className="welcome__link btn-opacity-change">Регистрация</NavLink></span>
                 </div>
