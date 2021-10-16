@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
-function Profile(loggedIn, onSignOut) {
+function Profile({loggedIn, onSignOut}) {
     const { email, name } = useContext(CurrentUserContext);
 
     return (

@@ -41,7 +41,7 @@ function EditProfile({ onEditProfile, loggedIn, isError }) {
                                     <p className="profile__text">
                                         Имя
                                     </p>
-                                    <input onChange={handleChange} className="profile__input" type="text" id="name-input" value={name} required minLength="2"
+                                    <input onChange={handleChange} className="profile__input" type="text" id="name-input" name='name' value={name} required minLength="2"
                                         maxLength="40" />
                                 </li>
                                 <span className="welcome__error">{errors.email}</span>
@@ -49,7 +49,7 @@ function EditProfile({ onEditProfile, loggedIn, isError }) {
                                     <p className="profile__text">
                                         E-mail
                                     </p>
-                                    <input onChange={handleChange} className="profile__input" type="email" id="email-input" value={email} required minLength="2"
+                                    <input onChange={handleChange} className="profile__input" type="email" id="email-input" name='email' value={email} required minLength="2"
                                         maxLength="40" />
                                 </li>
                                 <span className="welcome__error">{errors.email}</span>

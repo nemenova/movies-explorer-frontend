@@ -38,12 +38,12 @@ function Login(props) {
                         <fieldset className="welcome__form">
                             <label className="welcome__text" htmlFor="text-input">E-mail</label>
                             <input onChange={handleChange} value={values.email} autoComplete='off' minLength='2'
-                                className="welcome__input" type="email" id="email-input" required />
+                                className="welcome__input" type="email" id="email-input" name='email' required />
                             <span className="welcome__error">{errors.email}</span>
 
                             <label className="welcome__text" htmlFor="text-input">Пароль</label>
                             <input onChange={handleChange} value={values.password} minLength='8'
-                                className="welcome__input" type="password" id="password-input" required />
+                                className="welcome__input" type="password" id="password-input" name='password' required />
                             <span className="welcome__error">{errors.password}</span>
                         </fieldset>
                         <button type='submit' className={`welcome__submit-btn_back  ${isValid ? 'welcome__submit-btn btn-opacity-change' : 'welcome__submit-btn_disabled'}`} disabled={!isValid}>Войти</button>

@@ -17,17 +17,44 @@ import * as Auth from '../../utils/Auth';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const history = useHistory();
-  const [isError, setIsError] = React.useState(false);
+  const [isError, setIsError] = React.useState('');
+  const [savedMovies, setSavedMovies] = React.useState([]);
 
-  function handleRegister(password, email) {
-    Auth.register(password, email)
+
+  React.useEffect(() => {
+    Auth.checkToken()
+      .then((res) => {
+        if (res) {
+          setLoggedIn(true);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        setLoggedIn(false)
+      });
+  }, [loggedIn]);
+
+  React.useEffect(() => {
+    if (loggedIn) {
+      Promise.all([api.getUserInfo(), api.getMovies()])
+        .then(([userData, moviesData]) => {
+          setCurrentUser(userData);
+          setSavedMovies(moviesData);
+        })
+        .catch((e) => console.log(e));
+    }
+  }, [loggedIn]);
+
+  function handleRegister(password, email, name) {
+    Auth.register(password, email, name)
       .then(() => {
         history.push('/');
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
+        setIsError(err);
       })
   }
   function handleSignOut() {
@@ -50,7 +77,7 @@ function App() {
 
       })
       .catch((err) => {
-
+        setIsError(err);
         console.log(err)
       })
   }
@@ -61,7 +88,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-        setIsError(true);
+        setIsError(err);
       })
 
   };
@@ -73,15 +100,19 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <Switch>
         <Route exact path="/">
-          <Main loggedIn={loggedIn} onSignOut={handleSignOut} />
+          <Main loggedIn={loggedIn} />
           <Footer />
         </ Route>
-        <ProtectedRoute path="/movies">
-          <Movies />
+        <ProtectedRoute path="/movies"
+        component={Movies}
+        >
+         
           <Footer />
         </ ProtectedRoute>
-        <ProtectedRoute path="/saved-movies">
-          <SavedMovies />
+        <ProtectedRoute path="/saved-movies"
+        component={SavedMovies}
+        >
+          
           <Footer />
         </ ProtectedRoute>
         <ProtectedRoute path="/profile"
@@ -98,7 +129,7 @@ function App() {
       
         </ ProtectedRoute>
         <Route path="/signup">
-          <Register onRegister={handleRegister} />
+          <Register onRegister={handleRegister} isError={isError} />
         </ Route>
         <Route path="/signin">
           <Login onLogin={handleSignIn} />
