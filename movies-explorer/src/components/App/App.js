@@ -10,11 +10,11 @@ import NotFound from '../Errors/ErrorNotFound'
 import Footer from '../Footer/Footer';
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import * as Auth from '../utils/Auth';
+import * as Auth from '../../utils/Auth';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(true);
   const history = useHistory();
 
   function handleRegister(password, email) {

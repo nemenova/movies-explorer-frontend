@@ -37,7 +37,7 @@ class Api {
 
         }).then(this._checkResponse)
     }
-    
+
     deleteMovie(movieId) {
         return fetch(`${this._address}/movies/${movieId}`, {
             method: 'DELETE',
@@ -69,7 +69,7 @@ class Api {
     }
 }
 const api = new Api({
-    baseUrl: 'http://localhost:3001/',
+    baseUrl: 'http://localhost:3000',
     headers: {
         'Content-Type': 'application/json',
     },

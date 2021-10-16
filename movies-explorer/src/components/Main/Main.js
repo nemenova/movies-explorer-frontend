@@ -10,7 +10,7 @@ function Main(props) {
 
     return (
         <main className="content">
-            <Header />
+            <Header loggedIn={props.loggedIn}/>
             <Promo />
             <AboutProject />
             <Techs />

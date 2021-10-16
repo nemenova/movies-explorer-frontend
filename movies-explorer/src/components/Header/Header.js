@@ -5,15 +5,15 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 function Header(props) {
     const location = useLocation();
-    const [loggedIn, setLoggedIn] = React.useState(false);
+    // const [loggedIn, setLoggedIn] = React.useState(false);
     const mobile = window.matchMedia('(max-width: 1023px)').matches;
     const [isBurgerOpen, SetIsBurgerOpen] = React.useState(false);
-
-    React.useEffect(() => {
-        if (location.pathname !== '/') {
-            setLoggedIn(true)
-        }
-    }, [location, loggedIn]);
+const loggedIn = props.loggedIn;
+    // React.useEffect(() => {
+    //     if (location.pathname !== '/') {
+    //         setLoggedIn(true)
+    //     }
+    // }, [location, loggedIn]);
 
     function handleCloseBurger() {
         SetIsBurgerOpen(false);
