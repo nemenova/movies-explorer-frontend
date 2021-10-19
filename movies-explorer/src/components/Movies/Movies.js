@@ -6,7 +6,7 @@ import CardList from './MoviesCardList/MoviesCardList'
 import Preloader from './Preloader/Preloader'
 
 
-function Movies(props) {
+function Movies({loggedIn}) {
     // window.onload = function () {
     //     document.querySelector('.preloader').classList.add("preloader-remove");
     // };
@@ -14,7 +14,7 @@ function Movies(props) {
     return (
         <Suspense fallback={<Preloader />}>
             <main className="content">
-                <Header />
+                <Header loggedIn={loggedIn}/>
                 <SearchForm />
                 <section className="cards">
                     <CardList />

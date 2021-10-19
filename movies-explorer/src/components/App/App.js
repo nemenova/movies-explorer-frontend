@@ -23,12 +23,11 @@ function App() {
   const [savedMovies, setSavedMovies] = React.useState([]);
 
   console.log(loggedIn)
-debugger
+
   React.useEffect(() => {
     Auth.checkToken()
       .then((res) => {
         if (res) {
-          debugger
           setLoggedIn(true);
         }
       })
@@ -38,26 +37,8 @@ debugger
       });
   }, [loggedIn]);
 
-  // const tokenCheck = React.useCallback(() => {
-  //   Auth.checkToken()
-  //     .then((res) => {
-  //       if (res) {
-  //         setLoggedIn(true);
-  //       }
-  //     })
-  //     .catch((e) => {
-  //       // history.push('/');
-  //       console.log(e);
-  //     });
-  // }, [history]);
-
-  // React.useEffect(() => {
-  //   tokenCheck();
-  // }, [tokenCheck]);
-
   React.useEffect(() => {
     if (loggedIn) {
-      debugger
       Promise.all([api.getUserInfo(), api.getMovies()])
         .then(([userData, moviesData]) => {
           setCurrentUser(userData);
@@ -71,7 +52,6 @@ debugger
   function handleRegister(password, email, name) {
     Auth.register(password, email, name)
       .then(() => {
-        debugger
         history.push('/');
         setLoggedIn(true);
         handleSignIn(password, email)
@@ -131,12 +111,14 @@ debugger
         </ Route>
         <ProtectedRoute path="/movies"
         component={Movies}
+        loggedIn={loggedIn}
         >
          
           <Footer />
         </ ProtectedRoute>
         <ProtectedRoute path="/saved-movies"
         component={SavedMovies}
+        loggedIn={loggedIn}
         >
           
           <Footer />
