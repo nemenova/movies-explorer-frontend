@@ -33,6 +33,8 @@
   background-color: transparent;
   color: inherit;
   text-align: right;
+  font-size: 11px;
+  line-height: 13px;
 }
 .profile__input:focus-visible {
   outline: none;
@@ -62,7 +64,7 @@
   line-height: 16px;
   text-align: center;
 }
-.profile__error{
+.profile__error {
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;

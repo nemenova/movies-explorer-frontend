@@ -26,7 +26,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: #ee3465;
-  display: none;
 }
 .card__saved_active {
   display: flex;

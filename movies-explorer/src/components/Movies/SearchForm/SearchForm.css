@@ -25,7 +25,10 @@
 .search__input {
   background-color: transparent;
   border: none;
-  
+  color: inherit;
+}
+.search__input:focus {
+  outline: none;
 }
 .search__input::placeholder {
   font-family: inherit;
@@ -138,7 +141,7 @@
 }
 @media screen and (max-width: 600px) {
   .search__block-container {
-    width: calc(100% - 10px * 2);  
+    width: calc(100% - 10px * 2);
   }
   .checkbox__container {
     max-height: fit-content;

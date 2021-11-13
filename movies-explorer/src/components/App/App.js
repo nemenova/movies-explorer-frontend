@@ -20,7 +20,13 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const history = useHistory();
   const [isError, setIsError] = React.useState('');
+  const [isEmpty, setIsEmpty] = React.useState(false);
   const [savedMovies, setSavedMovies] = React.useState([]);
+  const [movies, setMovies] = React.useState([]);
+  const [isSaved, setIsSaved] = React.useState(false);
+  const [isErrorOccured, setIsErrorOccured] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+
 
   console.log(loggedIn)
 
@@ -29,13 +35,14 @@ function App() {
       .then((res) => {
         if (res) {
           setLoggedIn(true);
+          history.push('/movies')
         }
       })
       .catch((e) => {
         console.log(e);
         setLoggedIn(false)
       });
-  }, [loggedIn]);
+  }, [history, loggedIn]);
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -49,10 +56,58 @@ function App() {
     return
   }, [loggedIn]);
 
+  // function filterMovies() {
+
+  // }
+
+  function handleSearch(keyWord) {
+    setIsLoading(true);
+    // console.log(keyWord)
+    getMovies()
+      .then((res) => {
+        console.log(res)
+        const cards = res.filter((movie) => {
+          return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
+        });
+        localStorage.setItem('movies', JSON.stringify(cards));
+        setMovies(JSON.parse(localStorage.getItem('movies')));
+      if (cards.length < 1){
+        setIsEmpty(true)
+      }
+      })
+      // .then (() => {
+      //   const cards = movies.filter((movie) => {
+      //     return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
+      //   });
+      // localStorage.setItem('foundMovies', JSON.stringify(cards));
+      // setMovies(JSON.parse(localStorage.getItem('foundMovies')));
+      // })
+      .catch((e) => {
+        console.log(e);
+        setIsErrorOccured(true)
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
+  const handleSaveMovie = (movie) => {
+    api.saveMovie(movie)
+      .then((res) => {
+        setIsSaved(true)
+        localStorage.setItem('savedMovies', JSON.stringify(res));
+        setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
+        // setSavedMoviesId([...savedMoviesId, movie.id]);
+        // setSavedMovies([...savedMovies, res]);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   function handleRegister(password, email, name) {
     Auth.register(password, email, name)
       .then(() => {
-        history.push('/');
+        history.push('/movies');
         setLoggedIn(true);
         handleSignIn(password, email)
       })
@@ -78,7 +133,7 @@ function App() {
     Auth.authorize(password, email)
       .then(() => {
         setLoggedIn(true)
-        history.push('/');
+        history.push('/movies');
 
       })
       .catch((err) => {
@@ -110,38 +165,46 @@ function App() {
           <Footer />
         </ Route>
         <ProtectedRoute path="/movies"
-        component={Movies}
-        loggedIn={loggedIn}
+          component={Movies}
+          loggedIn={loggedIn}
+          isErrorOccured={isErrorOccured}
+          isLoading={isLoading}
+          movies={movies}
+          onSave={handleSaveMovie}
+          onSearch={handleSearch}
+          isEmpty={isEmpty}
+          isSaved={isSaved}
         >
-         
+
           <Footer />
         </ ProtectedRoute>
         <ProtectedRoute path="/saved-movies"
-        component={SavedMovies}
-        loggedIn={loggedIn}
+          component={SavedMovies}
+          loggedIn={loggedIn}
+          movies={savedMovies}
         >
-          
+
           <Footer />
         </ ProtectedRoute>
         <ProtectedRoute path="/profile"
-        component={Profile}
-        loggedIn={loggedIn}
-        onSignOut={handleSignOut}
+          component={Profile}
+          loggedIn={loggedIn}
+          onSignOut={handleSignOut}
         >
         </ ProtectedRoute>
         <ProtectedRoute path="/edit-profile"
-        component={EditProfile}
-        onEditProfile={handleUpdateUser} 
-        loggedIn={loggedIn} 
-        isError={isError} 
+          component={EditProfile}
+          onEditProfile={handleUpdateUser}
+          loggedIn={loggedIn}
+          isError={isError}
         >
-      
+
         </ ProtectedRoute>
         <Route path="/signup">
           <Register onRegister={handleRegister} isError={isError} />
         </ Route>
         <Route path="/signin">
-          <Login onLogin={handleSignIn} isError={isError}/>
+          <Login onLogin={handleSignIn} isError={isError} />
         </ Route>
         <Route path="*">
           <NotFound />

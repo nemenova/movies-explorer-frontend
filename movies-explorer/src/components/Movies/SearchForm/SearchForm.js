@@ -3,7 +3,7 @@ import { useState } from 'react';
 import useFormWithValidation from '../../../utils/useFormValidation';
 
 
-function Search({ handleSubmit }) {
+function Search({ onSearch }) {
     const { values, handleChange, errors, isValid } = useFormWithValidation({
         key: '',
       });
@@ -13,24 +13,21 @@ function Search({ handleSubmit }) {
         evt.preventDefault();
         if (isValid) {
           setSearchError('');
-          handleSubmit(values.key);
-        } else if (values.key.length > 0) {
-          setSearchError(errors.key);
-        } else {
+          onSearch(values.key);
+        } else if (values.key.length < 1) {
           setSearchError('Нужно ввести ключевое слово');
+        } else {
+          setSearchError(errors.key);
         }
       }
 
     return (
         <section className="search">
             <div className="search__block-container">
-            <span className="search__error" id="key-input-error">
-        {searchError}
-      </span>
                 <div className="search__container">
                     <form className="search__form" onSubmit={handleSearchSubmit}>
                         <fieldset className="search__form">
-                            <input onChange={handleChange} value={values.key} type="search" name="q" placeholder="Фильм" className="search__input" required/>
+                            <input onChange={handleChange} value={values.key} type="search" name="key" placeholder="Фильм" className="search__input" autoComplete="off" />
                             <input type="submit" value=" " className="search__submit btn-opacity-change" />
                             <div className="checkbox__container">
                                 <label className="checkbox__label">
@@ -43,7 +40,9 @@ function Search({ handleSubmit }) {
                             </div>
                         </fieldset>
                     </form>
+                    
                 </div>
+                <span className="welcome__error">{searchError}</span>
             </div>
         </section >
     )

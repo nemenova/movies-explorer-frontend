@@ -37,7 +37,7 @@ function Login({onLogin, isError}) {
                     <form onSubmit={handleSubmit} className="welcome__form">
                         <fieldset className="welcome__form">
                             <label className="welcome__text" htmlFor="text-input">E-mail</label>
-                            <input onChange={handleChange} value={values.email} autoComplete='off' minLength='2'
+                            <input pattern='^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$' onChange={handleChange} value={values.email} autoComplete='off' minLength='2'
                                 className="welcome__input" type="email" id="email-input" name='email' required />
                             <span className="welcome__error">{errors.email}</span>
 

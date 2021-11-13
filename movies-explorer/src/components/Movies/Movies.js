@@ -4,23 +4,36 @@ import Header from '../Header/Header'
 import SearchForm from './SearchForm/SearchForm'
 import CardList from './MoviesCardList/MoviesCardList'
 import Preloader from './Preloader/Preloader'
+import Footer from '../Footer/Footer';
 
 
-function Movies({loggedIn}) {
+function Movies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isSaved, isEmpty }) {
     // window.onload = function () {
     //     document.querySelector('.preloader').classList.add("preloader-remove");
     // };
-
+    function handleSearch(keyWord) {
+        onSearch(keyWord);
+    }
     return (
         <Suspense fallback={<Preloader />}>
             <main className="content">
-                <Header loggedIn={loggedIn}/>
-                <SearchForm />
-                <section className="cards">
-                    <CardList />
-                    <button className="cards__more btn-opacity-change">Ещё</button>
-                </section>
+                <Header loggedIn={loggedIn} />
+                <SearchForm onSearch={handleSearch} />
+                {isLoading ? <Preloader /> : null}
+                {isErrorOccured ? <span className="welcome__error">Во время запроса произошла ошибка. Возможно, проблема с соединением
+                    или сервер недоступен. Подождите немного и попробуйте ещё раз</span>
+                    : isEmpty ?
+                        <section className="cards">
+                            <span className="welcome__error">Ничего не найдено</span>
+                        </section>
+                        :
+                        <section className="cards">
+                            <CardList content={movies} isSaved={isSaved} />
+                            <button className="cards__more btn-opacity-change">Ещё</button>
+                        </section>
+                }
             </main >
+            <Footer />
         </Suspense>
     )
 

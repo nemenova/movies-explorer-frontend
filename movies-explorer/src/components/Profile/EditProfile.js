@@ -44,12 +44,12 @@ function EditProfile({ onEditProfile, loggedIn, isError }) {
                                     <input onChange={handleChange} className="profile__input" type="text" id="name-input" name='name' value={name} autoComplete='off' required minLength="2"
                                         maxLength="40" />
                                 </li>
-                                <span className="welcome__error">{errors.email}</span>
+                                <span className="welcome__error">{errors.name}</span>
                                 <li className="profile__item">
                                     <p className="profile__text">
                                         E-mail
                                     </p>
-                                    <input onChange={handleChange} className="profile__input" type="email" id="email-input" name='email' value={email} autoComplete='off' required minLength="2"
+                                    <input pattern='^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$' onChange={handleChange} className="profile__input" type="email" id="email-input" name='email' value={email} autoComplete='off' required minLength="2"
                                         maxLength="40" />
                                 </li>
                                 <span className="welcome__error">{errors.email}</span>

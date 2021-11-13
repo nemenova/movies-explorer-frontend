@@ -23,12 +23,12 @@ function Register({onRegister, isError}) {
                     <fieldset className="welcome__form">
 
                         <label className="welcome__text" htmlFor="text-input">Имя</label>
-                        <input pattern="/[^`a-zа-яё -]/iu" onChange={handleChange} className="welcome__input" 
+                        <input  onChange={handleChange} className="welcome__input" 
                         type="text" name='name' id="name-input" autoComplete='off' minLength='2' maxLength='40' required />
                         <span className="welcome__error">{errors.name}</span>
 
                         <label className="welcome__text" htmlFor="text-input">E-mail</label>
-                        <input onChange={handleChange} value={values.email} autoComplete='off'
+                        <input pattern='^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$' onChange={handleChange} value={values.email} autoComplete='off'
                         className="welcome__input" type="email" id="email-input" name='email' required />
                         <span className="welcome__error">{errors.email}</span>
 
