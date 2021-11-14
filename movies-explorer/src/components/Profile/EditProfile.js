@@ -7,7 +7,10 @@ import useFormValidation from '../../utils/useFormValidation';
 
 function EditProfile({ onEditProfile, loggedIn, isError }) {
     const { email, name } = useContext(CurrentUserContext);
-    const { values, handleChange, errors, isValid } = useFormValidation();
+    const { values, handleChange, errors, isValid } = useFormValidation({
+        name,
+        email,
+    });
     const [isUpdated, setIsUpdated] = useState(false);
 
     function onEditSubmit(evt) {
@@ -41,7 +44,7 @@ function EditProfile({ onEditProfile, loggedIn, isError }) {
                                     <p className="profile__text">
                                         Имя
                                     </p>
-                                    <input onChange={handleChange} className="profile__input" type="text" id="name-input" name='name' value={name} autoComplete='off' required minLength="2"
+                                    <input onChange={handleChange} className="profile__input" type="text" id="name-input" name='name' value={values.name} autoComplete='off' required minLength="2"
                                         maxLength="40" />
                                 </li>
                                 <span className="welcome__error">{errors.name}</span>
@@ -49,7 +52,7 @@ function EditProfile({ onEditProfile, loggedIn, isError }) {
                                     <p className="profile__text">
                                         E-mail
                                     </p>
-                                    <input pattern='^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$' onChange={handleChange} className="profile__input" type="email" id="email-input" name='email' value={email} autoComplete='off' required minLength="2"
+                                    <input pattern='^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$' onChange={handleChange} className="profile__input" type="email" id="email-input" name='email' value={values.email} autoComplete='off' required minLength="2"
                                         maxLength="40" />
                                 </li>
                                 <span className="welcome__error">{errors.email}</span>

@@ -22,7 +22,7 @@
   padding-left: 44px;
 }
 .header__tab_films {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 13px;
   line-height: 1.38;
   padding-right: 16px;
@@ -35,6 +35,9 @@
   line-height: 1.38;
   text-decoration: none;
   color: inherit;
+}
+.header__tab_active{
+  font-weight: 500;
 }
 .header__links {
   display: flex;

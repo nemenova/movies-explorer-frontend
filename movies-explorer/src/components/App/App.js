@@ -22,8 +22,7 @@ function App() {
   const [isError, setIsError] = React.useState('');
   const [isEmpty, setIsEmpty] = React.useState(false);
   const [savedMovies, setSavedMovies] = React.useState([]);
-  // const [movies, setMovies] = React.useState([]);
-  const [isSaved, setIsSaved] = React.useState(false);
+  // const [isSaved, setIsSaved] = React.useState(false);
   const [savedMoviesId, setSavedMoviesId] = React.useState([]);
   const [isErrorOccured, setIsErrorOccured] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -187,7 +186,7 @@ console.log(cards)
           onSave={handleSaveMovie}
           onSearch={handleSearch}
           isEmpty={isEmpty}
-          isSaved={isSaved}
+          
         >
 
           <Footer />
@@ -201,7 +200,7 @@ console.log(cards)
           // onDelete={handleDeleteMovie}
           onSearch={handleSearch}
           isEmpty={isEmpty}
-          // isSaved={isSaved}
+          
         >
 
           <Footer />

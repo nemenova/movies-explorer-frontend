@@ -34,8 +34,8 @@ function Header({loggedIn}) {
                                 :
                                 (<>
                                     <nav className="header__tabs">
-                                        <NavLink to="/movies" className="header__tab_films btn-opacity-change">Фильмы</NavLink>
-                                        <NavLink to="/saved-movies" className="header__tab_saved-films btn-opacity-change">Сохранённые фильмы</NavLink>
+                                        <NavLink to="/movies" activeClassName="header__tab_active" className="header__tab_films btn-opacity-change">Фильмы</NavLink>
+                                        <NavLink to="/saved-movies" activeClassName="header__tab_active" className="header__tab_saved-films btn-opacity-change">Сохранённые фильмы</NavLink>
                                     </nav>
                                     <nav className="header__links">
                                         <button className="header__account-btn btn-opacity-change"><NavLink to="/profile" className="header__link_account">Аккаунт</NavLink></button>
@@ -53,9 +53,9 @@ function Header({loggedIn}) {
                     <div className='burger-menu__container'>
                         <button onClick={handleCloseBurger} className="burger-menu__close-btn" />
                         <div className="burger-menu__text">
-                            <NavLink className="burger-menu__link btn-opacity-change" to="/">Главная</NavLink>
-                            <NavLink className="burger-menu__link btn-opacity-change" to="/movies">Фильмы</NavLink>
-                            <NavLink className="burger-menu__link btn-opacity-change" to="/saved-movies">Сохранённые фильмы</NavLink>
+                            <NavLink activeClassName="burger-menu__link_active" className="burger-menu__link btn-opacity-change" to="/">Главная</NavLink>
+                            <NavLink activeClassName="burger-menu__link_active" className="burger-menu__link btn-opacity-change" to="/movies">Фильмы</NavLink>
+                            <NavLink activeClassName="burger-menu__link_active" className="burger-menu__link btn-opacity-change" to="/saved-movies">Сохранённые фильмы</NavLink>
                         </div>
                         <button className="header__account-btn btn-opacity-change"><NavLink to="/profile" className="header__link_account">Аккаунт</NavLink></button>
                     </div>

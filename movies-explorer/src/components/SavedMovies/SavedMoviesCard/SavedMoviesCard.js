@@ -2,7 +2,7 @@ import React from 'react';
 import { HourDuration } from '../../../utils/constants';
 
 
-function MoviesCardSaved({ content, isSaved, onDelete }) {
+function MoviesCardSaved({ content, onDelete }) {
     function handleDeleteClick() {
         onDelete(content)
     }

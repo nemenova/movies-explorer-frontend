@@ -5,16 +5,13 @@ import SearchForm from '../Movies/SearchForm/SearchForm'
 import CardList from './SavedMoviesCardList/SavedMoviesCardList'
 import Footer from '../Footer/Footer';
 import Preloader from '../Movies/Preloader/Preloader';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
 function SavedMovies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isEmpty, onDelete }) {
     function handleSearch(keyWord) {
         onSearch(keyWord);
     }
-    // const [isSaved, setIsSaved] = React.useState(false);
-    // const currentUser = React.useContext(CurrentUserContext);
-    // setIsSaved(movies.owner.some(i => i === currentUser._id));
+ 
     return (
         (
             <Suspense fallback={<Preloader />}>
