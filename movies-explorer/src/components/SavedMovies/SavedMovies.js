@@ -28,7 +28,6 @@ function SavedMovies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, is
                             :
                             <section className="cards">
                                 <CardList content={movies} onDelete={onDelete} />
-                                <button className="cards__more btn-opacity-change">Ещё</button>
                             </section>
                     }
                 </main >

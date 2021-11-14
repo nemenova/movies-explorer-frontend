@@ -28,7 +28,6 @@ function Movies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isEmpty
                         :
                         <section className="cards">
                             <CardList content={movies} onSave={onSave} savedMoviesId={savedMoviesId}/>
-                            <button className="cards__more btn-opacity-change">Ещё</button>
                         </section>
                 }
             </main >
