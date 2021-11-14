@@ -2,12 +2,20 @@ import React from 'react';
 import { HourDuration } from '../../../utils/constants';
 
 
-function MoviesCard({ content, isSaved, onSave }) {
-console.log(isSaved)
+function MoviesCard({ content, onSave, savedMoviesId }) {
+    // console.log(content)
+    // console.log(savedMoviesId)
+    const handleIsLike = (card, savedMoviesId) => {
+        if (card.nameRU) {
+            return savedMoviesId.some((el) => el === card.nameRU);
+        }
+    };
+    const isSaved = handleIsLike(content, savedMoviesId);
 
-function handleSaveClick() {
-    onSave(content)
-}
+    function handleSaveClick() {
+        onSave(content)
+        console.log(content)
+    }
 
     const hours = Math.trunc(content.duration / HourDuration);
     const minutes = content.duration % HourDuration;
@@ -16,13 +24,12 @@ function handleSaveClick() {
     return (
         <>
             <li className="card">
-                
-                <div className="card-btn">
-                    {isSaved ? <button className="card__saved btn-opacity-change"></button>
-                        :
+                {isSaved ? <button className="card__saved btn-opacity-change"></button>
+                    :
+                    <div className="card-btn">
                         <button onClick={handleSaveClick} className="card__save-btn btn-opacity-change">Сохранить</button>
-                    }
-                </div>
+                    </div>
+                }
                 <img src={`https://api.nomoreparties.co${content.image.url}`} alt={content.nameRU} className="card__image" />
                 <div className="card__content">
                     <h4 className="card__title">{content.nameRU}</h4>

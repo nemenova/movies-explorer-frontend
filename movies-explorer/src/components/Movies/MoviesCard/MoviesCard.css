@@ -13,7 +13,11 @@
   color: inherit;
   border-radius: 30px;
   font-size: 10px;
+  /* opacity: 0; */
 }
+/* .card__save-btn:hover{
+  opacity: 1;
+} */
 .card__saved {
   width: 21px;
   height: 21px;
@@ -26,14 +30,18 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: #ee3465;
+  /* opacity: 0; */
 }
-.card__saved_active {
+/* .card__saved:hover{
+  opacity: 1;
+} */
+/* .card__saved_active {
   display: flex;
-}
+} */
 .card-btn {
+  opacity: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
   position: absolute;
   transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
   cursor: pointer;

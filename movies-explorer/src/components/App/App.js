@@ -22,13 +22,16 @@ function App() {
   const [isError, setIsError] = React.useState('');
   const [isEmpty, setIsEmpty] = React.useState(false);
   const [savedMovies, setSavedMovies] = React.useState([]);
-  const [movies, setMovies] = React.useState([]);
+  // const [movies, setMovies] = React.useState([]);
   const [isSaved, setIsSaved] = React.useState(false);
+  const [savedMoviesId, setSavedMoviesId] = React.useState([]);
   const [isErrorOccured, setIsErrorOccured] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-
-
-  console.log(loggedIn)
+  const [movies, setMovies] = React.useState(
+    localStorage.getItem('movies')
+      ? JSON.parse(localStorage.getItem('movies'))
+      : []
+  );
 
   React.useEffect(() => {
     Auth.checkToken()
@@ -49,7 +52,8 @@ function App() {
       Promise.all([api.getUserInfo(), api.getMovies()])
         .then(([userData, moviesData]) => {
           setCurrentUser(userData);
-          setSavedMovies(moviesData);
+          setSavedMovies(moviesData.movies);
+          setSavedMoviesId(moviesData.movies.map((movie) => movie.nameRU));
         })
         .catch((e) => console.log(e));
     }
@@ -70,7 +74,9 @@ function App() {
           return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
         });
         localStorage.setItem('movies', JSON.stringify(cards));
+console.log(cards)
         setMovies(JSON.parse(localStorage.getItem('movies')));
+        // setIsSaved(cards.owner.some(i => i === currentUser._id));
       if (cards.length < 1){
         setIsEmpty(true)
       }
@@ -91,13 +97,20 @@ function App() {
       });
   }
   const handleSaveMovie = (movie) => {
+    console.log(movie)
+
+    // setIsSaved(movies.owner.some(i => i === currentUser._id));
     api.saveMovie(movie)
       .then((res) => {
-        setIsSaved(true)
+        // setIsSaved(true)
+        console.log(res)
         localStorage.setItem('savedMovies', JSON.stringify(res));
-        setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
-        // setSavedMoviesId([...savedMoviesId, movie.id]);
-        // setSavedMovies([...savedMovies, res]);
+        // setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
+        setSavedMoviesId([...savedMoviesId, res.nameRU]);
+        setSavedMovies([...savedMovies, res]);
+        // console.log(res)
+        // console.log(savedMoviesId)
+        // setIsSaved(savedMovies.owner.some(i => i === currentUser._id));
       })
       .catch((err) => {
         console.error(err);
@@ -170,6 +183,7 @@ function App() {
           isErrorOccured={isErrorOccured}
           isLoading={isLoading}
           movies={movies}
+          savedMoviesId={savedMoviesId}
           onSave={handleSaveMovie}
           onSearch={handleSearch}
           isEmpty={isEmpty}
@@ -182,6 +196,12 @@ function App() {
           component={SavedMovies}
           loggedIn={loggedIn}
           movies={savedMovies}
+          isErrorOccured={isErrorOccured}
+          isLoading={isLoading}
+          // onDelete={handleDeleteMovie}
+          onSearch={handleSearch}
+          isEmpty={isEmpty}
+          // isSaved={isSaved}
         >
 
           <Footer />

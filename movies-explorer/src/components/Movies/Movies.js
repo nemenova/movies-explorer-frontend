@@ -5,15 +5,15 @@ import SearchForm from './SearchForm/SearchForm'
 import CardList from './MoviesCardList/MoviesCardList'
 import Preloader from './Preloader/Preloader'
 import Footer from '../Footer/Footer';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
-function Movies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isSaved, isEmpty }) {
-    // window.onload = function () {
-    //     document.querySelector('.preloader').classList.add("preloader-remove");
-    // };
+function Movies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isSaved, isEmpty, onSave, savedMoviesId }) {
+
     function handleSearch(keyWord) {
         onSearch(keyWord);
     }
+
     return (
         <Suspense fallback={<Preloader />}>
             <main className="content">
@@ -28,7 +28,7 @@ function Movies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isSaved
                         </section>
                         :
                         <section className="cards">
-                            <CardList content={movies} isSaved={isSaved} />
+                            <CardList content={movies} isSaved={isSaved} onSave={onSave} savedMoviesId={savedMoviesId}/>
                             <button className="cards__more btn-opacity-change">Ещё</button>
                         </section>
                 }

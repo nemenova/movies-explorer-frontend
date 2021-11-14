@@ -8,7 +8,10 @@ function Login({onLogin, isError}) {
     // const [email, setEmail] = React.useState('');
     // const [password, setPassword] = React.useState('');
 
-    const { values, handleChange, errors, isValid } = useFormValidation();
+    const { values, handleChange, errors, isValid } = useFormValidation({
+        email: '',
+        password: '',
+      });
 
     // function handleChangeEmail(e) {
     //     setEmail(e.target.value);
