@@ -24,13 +24,19 @@ function MoviesCard({ content, onSave, savedMoviesId }) {
     return (
         <>
             <li className="card">
-                {isSaved ? <button className="card__saved btn-opacity-change"></button>
-                    :
-                    <div className="card-btn">
-                        <button onClick={handleSaveClick} className="card__save-btn btn-opacity-change">Сохранить</button>
-                    </div>
-                }
-                <img src={`https://api.nomoreparties.co${content.image.url}`} alt={content.nameRU} className="card__image" />
+                <a
+                    href={content.trailerLink.startsWith('https') ? content.trailerLink : 'https://www.youtube.com'}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    {isSaved ? <button className="card__saved btn-opacity-change"></button>
+                        :
+                        <div className="card-btn">
+                            <button onClick={handleSaveClick} className="card__save-btn btn-opacity-change">Сохранить</button>
+                        </div>
+                    }
+                    <img src={`https://api.nomoreparties.co${content.image.url}`} alt={content.nameRU} className="card__image" />
+                </a>
                 <div className="card__content">
                     <h4 className="card__title">{content.nameRU}</h4>
                     <span className="card__duration">{time}</span>

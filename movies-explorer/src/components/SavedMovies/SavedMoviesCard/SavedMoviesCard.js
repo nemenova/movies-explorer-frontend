@@ -14,10 +14,16 @@ function MoviesCardSaved({ content, isSaved, onDelete }) {
         <>
 
             <li className="card">
-                <div className="card-btn">
-                    <button onClick={handleDeleteClick} className="card__delete-btn"></button>
-                </div>
-                <img src={content.image} alt={content.nameRU} className="card__image" />
+                <a
+                    href={content.trailer.startsWith('https') ? content.trailer : 'https://www.youtube.com'}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <div className="card-btn">
+                        <button onClick={handleDeleteClick} className="card__delete-btn"></button>
+                    </div>
+                    <img src={content.image} alt={content.nameRU} className="card__image" />
+                </a>
                 <div className="card__content">
                     <h4 className="card__title">{content.nameRU}</h4>
                     <span className="card__duration">{time}</span>
