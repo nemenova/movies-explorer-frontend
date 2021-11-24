@@ -32,14 +32,14 @@ function MoviesCard({ content, onSave, savedMoviesId, onDelete }) {
                     rel="noreferrer"
                 >
                     <img src={`https://api.nomoreparties.co${content.image.url}`} alt={content.nameRU} className="card__image" />
-                    {isSaved ? <button onClick={handleDeleteMovie} className="card__saved btn-opacity-change"></button>
+                   
+                </a>
+                {isSaved ? <button onClick={handleDeleteMovie} className="card__saved btn-opacity-change"></button>
                     :
                     <div className="card-btn">
                         <button onClick={handleSaveClick} className="card__save-btn btn-opacity-change">Сохранить</button>
                     </div>
                 }
-                </a>
-                
                 <div className="card__content">
                     <h4 className="card__title">{content.nameRU}</h4>
                     <span className="card__duration">{time}</span>

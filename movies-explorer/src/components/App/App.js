@@ -27,6 +27,7 @@ function App() {
   const [savedMoviesId, setSavedMoviesId] = React.useState([]);
   const [isErrorOccured, setIsErrorOccured] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isChecked, setIsChecked] = React.useState(false);
   const [movies, setMovies] = React.useState(
     localStorage.getItem('movies')
       ? JSON.parse(localStorage.getItem('movies'))
@@ -89,40 +90,39 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleShortSearch(checked) {
     console.log(checked)
-    // console.log(keyWord)
-    if (checked) {
-      setIsLoading(true);
-      getMovies()
-        .then((res) => {
-          console.log(res)
+    setIsLoading(true);
+    getMovies()
+      .then((res) => {
+        console.log(res)
+        if (checked) {
           const shortCards = res.filter((movie) => {
             return movie.duration < shortDuration
           });
-          // localStorage.setItem('movies', JSON.stringify(shortCards));
           console.log(shortCards)
           setMovies(shortCards);
           if (shortCards.length < 1) {
             setIsEmpty(true)
           }
-        })
-        .catch((e) => {
-          console.log(e);
-          setIsErrorOccured(true)
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-
-      // const shortCards = movies.filter((movie) => {
-      //   return movie.duration < shortDuration
-      // });
-      // console.log(shortCards)
-      // // localStorage.setItem('movies', JSON.stringify(shortCardss));
-      // setMovies(shortCards);
-    }
-    setMovies(JSON.parse(localStorage.getItem('movies')))
-
+        } else if (!checked) {
+          setMovies(JSON.parse(localStorage.getItem('movies')))
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        setIsErrorOccured(true)
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
+  React.useEffect(() => {
+    if (isChecked) {
+      handleShortSearch(isChecked)
+    }
+    return
+  }, [isChecked]);
+
+
 
   const handleSaveMovie = (movie) => {
     console.log(movie)
@@ -161,18 +161,32 @@ function App() {
     //   setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
     // }
   }
-  function handleSavedShortSearch(keyWord) {
-
-    const shortCards = savedMovies.filter((movie) => {
-      return movie.duration < shortDuration
-    });
-    // localStorage.setItem('movies', JSON.stringify(shortCards));
-    console.log(shortCards)
-    setSavedMovies(shortCards);
-    if (shortCards.length < 1) {
-      setIsEmpty(true)
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  function handleSavedShortSearch(checked) {
+    setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')))
+    console.log(savedMovies)
+    if (checked) {
+      const shortCards = savedMovies.filter((movie) => {
+        return movie.duration < shortDuration
+      });
+      console.log(shortCards)
+      setSavedMovies(shortCards);
+      if (shortCards.length < 1) {
+        setIsEmpty(true)
+      }
+    } else if (!checked) {
+      setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')))
+      console.log(savedMovies)
     }
   }
+
+  React.useEffect(() => {
+    if (isChecked) {
+      handleSavedShortSearch(isChecked)
+    }
+    return
+  }, [handleSavedShortSearch, isChecked]);
 
   function handleRegister(password, email, name) {
     Auth.register(password, email, name)
@@ -278,6 +292,7 @@ function App() {
           isLoading={isLoading}
           onSearch={handleSavedSearch}
           onShortSearch={handleSavedShortSearch}
+
           isEmpty={isEmpty}
           onDelete={deleteMovie}
         >

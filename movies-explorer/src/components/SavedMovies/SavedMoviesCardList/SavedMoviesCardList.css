@@ -1,6 +1,7 @@
 .cards {
   background-color: #202020;
   padding: 70px 0 80px;
+  min-height: 100vh;
 }
 .cards__list {
   list-style-type: none;

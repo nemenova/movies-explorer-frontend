@@ -4,7 +4,11 @@ import logo from '../../images/logo.svg'
 import useFormValidation from '../../utils/useFormValidation';
 
 function Register({onRegister, isError}) {
-    const { values, handleChange, errors, isValid } = useFormValidation();
+    const { values, handleChange, errors, isValid } = useFormValidation({
+        email: '',
+        password: '',
+        name: ''
+      });
 
     function handleSubmit(e) {
         e.preventDefault();

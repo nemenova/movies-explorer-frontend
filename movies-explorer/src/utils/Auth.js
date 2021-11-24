@@ -43,7 +43,7 @@ export const checkToken = () => {
 }
 export const signOut = () => {
     return fetch(`${BASE_URL}/signout`, {
-        method: 'DELETE',
+        method: 'POST',
         credentials: 'include',
     })
         .then(checkResponse)

@@ -4,7 +4,7 @@ import useFormWithValidation from '../../../utils/useFormValidation';
 
 
 function Search({ onSearch, onShortSearch }) {
-
+  const [isChecked, setIsChecked] = React.useState(false);
 
     const { values, handleChange, errors, isValid } = useFormWithValidation({
         key: '',
@@ -23,8 +23,9 @@ function Search({ onSearch, onShortSearch }) {
         }
       }
       function handleShortSearch() {
-        console.log(onShortSearch)
-        onShortSearch(true);
+        setIsChecked(!isChecked)
+        onShortSearch(!isChecked);
+
       }
 
     return (
@@ -33,7 +34,7 @@ function Search({ onSearch, onShortSearch }) {
                 <div className="search__container">
                     <form className="search__form" onSubmit={handleSearchSubmit}>
                         <fieldset className="search__form">
-                            <input onChange={handleChange} value={values.key} type="search" name="key" placeholder="Фильм" className="search__input" autoComplete="off"  />
+                            <input onChange={handleChange} value={values.key} type="search" name="key" placeholder="Фильм" className="search__input" autoComplete="off" required />
                             <input type="submit" value=" " className="search__submit btn-opacity-change" />
                             <div className="checkbox__container">
                                 <label className="checkbox__label">
@@ -46,9 +47,9 @@ function Search({ onSearch, onShortSearch }) {
                             </div>
                         </fieldset>
                     </form>
-                    
+                    <span className="welcome__error">{searchError}</span>
                 </div>
-                <span className="welcome__error">{searchError}</span>
+                
             </div>
         </section >
     )
