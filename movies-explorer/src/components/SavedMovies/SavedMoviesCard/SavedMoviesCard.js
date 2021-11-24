@@ -15,7 +15,7 @@ function MoviesCardSaved({ content, onDelete }) {
 
             <li className="card">
                 <a
-                    href={content.trailer.startsWith('https') ? content.trailer : 'https://www.youtube.com'}
+                    href={content.trailer}
                     target="_blank"
                     rel="noreferrer"
                 >

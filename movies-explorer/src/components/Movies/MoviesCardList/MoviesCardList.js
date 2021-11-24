@@ -5,7 +5,7 @@ import { desktopWidth, tabletWidth, mobileWidth } from '../../../utils/constants
 
 import { debounce } from 'lodash';
 
-function MoviesCardList({ content, onSave, savedMoviesId }) {
+function MoviesCardList({ content, onSave, savedMoviesId, onDelete }) {
     const [filteredMovies, setFilteredMovies] = useState([]);
     const [windowSize, setWindowSize] = useState(window.innerWidth);
 
@@ -14,11 +14,12 @@ function MoviesCardList({ content, onSave, savedMoviesId }) {
         () => {
             if (windowSize >= desktopWidth) return { count: 12, more: 3 };
             if (windowSize >= tabletWidth) return { count: 8, more: 2 };
-            if (windowSize >= mobileWidth) return { count: 5, more: 1 };
+            if (windowSize >= mobileWidth) return { count: 5, more: 2 };
         },
         [windowSize],
     );
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const onChange = useCallback(
         debounce(() => {
             setWindowSize(window.innerWidth);
@@ -45,7 +46,7 @@ function MoviesCardList({ content, onSave, savedMoviesId }) {
         <>
             <ul className="cards__list">
                 {filteredMovies.map((i, movieId) => (
-                    <Card key={movieId} content={i} onSave={onSave} savedMoviesId={savedMoviesId} />
+                    <Card key={movieId} content={i} onSave={onSave} savedMoviesId={savedMoviesId} onDelete={onDelete} />
                 ))}
             </ul>
             {content.length > filteredMovies.length ? (

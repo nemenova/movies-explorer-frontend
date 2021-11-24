@@ -5,7 +5,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import useFormValidation from '../../utils/useFormValidation';
 
 
-function EditProfile({ onEditProfile, loggedIn, isError }) {
+function EditProfile({ onEditProfile, loggedIn, isError, isSuccess }) {
     const { email, name } = useContext(CurrentUserContext);
     const { values, handleChange, errors, isValid } = useFormValidation({
         name,
@@ -15,6 +15,7 @@ function EditProfile({ onEditProfile, loggedIn, isError }) {
 
     function onEditSubmit(evt) {
         evt.preventDefault();
+        console.log(evt)
         const { email, name } = values;
         onEditProfile({ email, name });
     };
@@ -37,7 +38,7 @@ function EditProfile({ onEditProfile, loggedIn, isError }) {
                 <div className="profile__container">
                     <p className="hello">Привет, {name}!</p>
 
-                    <form className="welcome__form">
+                    <form onSubmit={onEditSubmit} className="welcome__form">
                         <fieldset className="welcome__form">
                             <ul className="profile__list_edit">
                                 <li className="profile__item">
@@ -58,8 +59,9 @@ function EditProfile({ onEditProfile, loggedIn, isError }) {
                                 <span className="welcome__error">{errors.email}</span>
                             </ul>
                         </fieldset>
+                        {isSuccess ? (<span className="profile__success">Ура! Ваш профиль обновлен.</span>) : null}
                         {isError ? (<span className="profile__error">При обновлении профиля произошла ошибка.</span>) : null}
-                        <button onSubmit={onEditSubmit} type='submit' className={`${isValid ? 'welcome__submit-btn btn-opacity-change' : 'welcome__submit-btn_disabled'}`} disabled={!isUpdated && !isValid}>Сохранить</button>
+                        <button type='submit' className={`${isValid ? 'welcome__submit-btn btn-opacity-change' : 'welcome__submit-btn_disabled'}`} disabled={!isUpdated && !isValid}>Сохранить</button>
                     </ form>
 
                 </div>

@@ -13,6 +13,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: #313131;
+  z-index: 2;
+  cursor: pointer;
 }
 .card__image {
   width: 360px;
@@ -25,6 +27,7 @@
   height: 100%;
   opacity: 0;
   position: absolute;
+  top: 0;
   transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
   cursor: pointer;
 }

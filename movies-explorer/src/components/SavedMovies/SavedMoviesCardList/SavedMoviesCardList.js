@@ -15,11 +15,12 @@ function SavedMoviesCardList({ content, isSaved, onDelete }) {
         () => {
             if (windowSize >= desktopWidth) return { count: 12, more: 3 };
             if (windowSize >= tabletWidth) return { count: 8, more: 2 };
-            if (windowSize >= mobileWidth) return { count: 5, more: 1 };
+            if (windowSize >= mobileWidth) return { count: 5, more: 2 };
         },
         [windowSize],
     );
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const onChange = useCallback(
         debounce(() => {
             setWindowSize(window.innerWidth);
