@@ -7,7 +7,7 @@ import Preloader from './Preloader/Preloader'
 import Footer from '../Footer/Footer';
 
 
-function Movies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isEmpty, onSave, savedMoviesId, onShortSearch, onDelete }) {
+function Movies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isEmpty, onSave, savedMoviesId, onShortSearch, onDelete, onChecking }) {
 
     function handleSearch(keyWord) {
         onSearch(keyWord);
@@ -17,7 +17,7 @@ function Movies({ loggedIn, isErrorOccured, isLoading, movies, onSearch, isEmpty
         <Suspense fallback={<Preloader />}>
             <main className="content">
                 <Header loggedIn={loggedIn} />
-                <SearchForm onSearch={handleSearch} onShortSearch={onShortSearch}/>
+                <SearchForm onSearch={handleSearch} onShortSearch={onShortSearch} onChecking={onChecking} />
                 {isLoading ? <Preloader /> : null}
                 {isErrorOccured ? <span className="welcome__error">Во время запроса произошла ошибка. Возможно, проблема с соединением
                     или сервер недоступен. Подождите немного и попробуйте ещё раз</span>

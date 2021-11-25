@@ -53,7 +53,7 @@ function Header({loggedIn}) {
                     <div className='burger-menu__container'>
                         <button onClick={handleCloseBurger} className="burger-menu__close-btn" />
                         <div className="burger-menu__text">
-                            <NavLink activeClassName="burger-menu__link_active" className="burger-menu__link btn-opacity-change" to="/">Главная</NavLink>
+                            <NavLink activeClassName="burger-menu__link_active" className="burger-menu__link btn-opacity-change" to="/" exact={true}>Главная</NavLink>
                             <NavLink activeClassName="burger-menu__link_active" className="burger-menu__link btn-opacity-change" to="/movies">Фильмы</NavLink>
                             <NavLink activeClassName="burger-menu__link_active" className="burger-menu__link btn-opacity-change" to="/saved-movies">Сохранённые фильмы</NavLink>
                         </div>

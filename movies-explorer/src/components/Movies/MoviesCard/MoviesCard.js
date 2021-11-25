@@ -13,7 +13,7 @@ function MoviesCard({ content, onSave, savedMoviesId, onDelete }) {
     const isSaved = handleIsSaved(content, savedMoviesId);
 
     function handleSaveClick() {
-        onSave(content)
+        onSave(content);
     }
     function handleDeleteMovie() {
         onDelete(content);
@@ -24,28 +24,24 @@ function MoviesCard({ content, onSave, savedMoviesId, onDelete }) {
     const time = `${hours > 0 ? `${hours}ч ` : ''}${minutes > 0 ? `${minutes}м` : ''
         }`;
     return (
-        <>
-            <li className="card">
-                <a
-                    href={content.trailerLink}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <img src={`https://api.nomoreparties.co${content.image.url}`} alt={content.nameRU} className="card__image" />
-                   
-                </a>
+        <li className="card">
+            <a
+                href={content.trailerLink}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <img src={`https://api.nomoreparties.co${content.image.url}`} alt={content.nameRU} className="card__image" />
                 {isSaved ? <button onClick={handleDeleteMovie} className="card__saved btn-opacity-change"></button>
                     :
                     <div className="card-btn">
                         <button onClick={handleSaveClick} className="card__save-btn btn-opacity-change">Сохранить</button>
-                    </div>
-                }
-                <div className="card__content">
-                    <h4 className="card__title">{content.nameRU}</h4>
-                    <span className="card__duration">{time}</span>
-                </div>
-            </li>
-        </>
+                    </div>}
+            </a>
+            <div className="card__content">
+                <h4 className="card__title">{content.nameRU}</h4>
+                <span className="card__duration">{time}</span>
+            </div>
+        </li>
     )
 
 }

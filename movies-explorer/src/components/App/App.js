@@ -85,16 +85,13 @@ function App() {
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleShortSearch(checked) {
-    console.log(checked)
     setIsLoading(true);
     getMovies()
       .then((res) => {
-        console.log(res)
         if (checked) {
           const shortCards = res.filter((movie) => {
             return movie.duration < shortDuration
           });
-          console.log(shortCards)
           setMovies(shortCards);
           if (shortCards.length < 1) {
             setIsEmpty(true)
@@ -124,7 +121,6 @@ function App() {
       return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
     });
     localStorage.setItem('foundMovies', JSON.stringify(cards));
-    console.log(cards)
     setSavedMovies(JSON.parse(localStorage.getItem('foundMovies')));
     if (cards.length < 1) {
       setIsEmpty(true)
@@ -152,7 +148,8 @@ function App() {
       handleSavedShortSearch(isChecked)
     }
     return
-  }, [handleSavedShortSearch, isChecked]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isChecked]);
 
   // film saving
   const handleSaveMovie = (movie) => {
@@ -160,7 +157,6 @@ function App() {
       .then((res) => {
         setSavedMoviesId([...savedMoviesId, res.nameRU]);
         setSavedMovies([...savedMovies, res]);
-        console.log(savedMovies)
         localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
       })
       .catch((err) => {
@@ -191,6 +187,7 @@ function App() {
         setCurrentUser({ email: '', name: '' });
         localStorage.removeItem('foundMovies');
         localStorage.removeItem('movies');
+        localStorage.removeItem('savedMovies');
         setMovies([]);
       })
       .catch((err) => {
@@ -234,14 +231,13 @@ function App() {
     }
     api.deleteMovie(movie.owner ? movie._id : movieId)
       .then((del) => {
-        console.log(del)
         setSavedMovies(savedMovies.filter((film) => film._id !== del._id));
         setSavedMoviesId(savedMoviesId.filter((name) => name !== del.nameRU));
       })
       .catch(err => console.log(err))
   }
 
-  
+
   return (
 
     <CurrentUserContext.Provider value={currentUser}>
@@ -262,6 +258,7 @@ function App() {
           isEmpty={isEmpty}
           onShortSearch={handleShortSearch}
           onDelete={deleteMovie}
+          onChecking={setIsChecked}
         >
 
           <Footer />
@@ -274,7 +271,7 @@ function App() {
           isLoading={isLoading}
           onSearch={handleSavedSearch}
           onShortSearch={handleSavedShortSearch}
-
+          onChecking={setIsChecked}
           isEmpty={isEmpty}
           onDelete={deleteMovie}
         >

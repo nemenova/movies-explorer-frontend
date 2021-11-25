@@ -11,28 +11,24 @@ function MoviesCardSaved({ content, onDelete }) {
     const time = `${hours > 0 ? `${hours}ч ` : ''}${minutes > 0 ? `${minutes}м` : ''
         }`;
     return (
-        <>
 
-            <li className="card">
-                <a
-                    href={content.trailer}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <div className="card-btn">
-                        <button onClick={handleDeleteClick} className="card__delete-btn"></button>
-                    </div>
-                    <img src={content.image} alt={content.nameRU} className="card__image" />
-                </a>
-                <div className="card__content">
-                    <h4 className="card__title">{content.nameRU}</h4>
-                    <span className="card__duration">{time}</span>
+        <li className="card">
+            <a
+                href={content.trailer}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <img src={content.image} alt={content.nameRU} className="card__image" />
+                <div className="card-btn">
+                    <button onClick={handleDeleteClick} className="card__delete-btn"></button>
                 </div>
-            </li>
-
-        </>
+            </a>
+            <div className="card__content">
+                <h4 className="card__title">{content.nameRU}</h4>
+                <span className="card__duration">{time}</span>
+            </div>
+        </li>
     )
-
 }
 
 export default MoviesCardSaved;
