@@ -5,7 +5,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { debounce } from 'lodash';
 
 
-function SavedMoviesCardList({ content, isSaved, onDelete }) {
+function SavedMoviesCardList({ content, onDelete }) {
 
  const [filteredMovies, setFilteredMovies] = useState([]);
     const [windowSize, setWindowSize] = useState(window.innerWidth);
@@ -47,7 +47,7 @@ function SavedMoviesCardList({ content, isSaved, onDelete }) {
         <>
         <ul className="cards__list">
             {filteredMovies.map((i, movieId) => (
-                <Card key={movieId} content={i} isSaved={isSaved} onDelete={onDelete} />
+                <Card key={movieId} content={i} onDelete={onDelete} />
             ))}
         </ul>
         {content.length > filteredMovies.length ? (
