@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'http://backend.nemenova.nomoredomains.club';
 
 function checkResponse(res) {
     if (res.ok) {
