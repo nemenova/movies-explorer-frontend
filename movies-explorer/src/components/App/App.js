@@ -88,6 +88,7 @@ function App() {
     setIsLoading(true);
     getMovies()
       .then((res) => {
+        console.log(res)
         if (checked) {
           const shortCards = res.filter((movie) => {
             return movie.duration < shortDuration
@@ -108,11 +109,13 @@ function App() {
         setIsLoading(false);
       });
   }
+  
   React.useEffect(() => {
     if (isChecked) {
       handleShortSearch(isChecked)
     }
     return
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChecked]);
 
   // saved films search
@@ -120,8 +123,8 @@ function App() {
     const cards = savedMovies.filter((movie) => {
       return movie.nameRU.toLowerCase().includes(keyWord.toLowerCase());
     });
-    localStorage.setItem('foundMovies', JSON.stringify(cards));
-    setSavedMovies(JSON.parse(localStorage.getItem('foundMovies')));
+    // localStorage.setItem('foundMovies', JSON.stringify(cards));
+    setSavedMovies(cards);
     if (cards.length < 1) {
       setIsEmpty(true)
     }
@@ -171,11 +174,12 @@ function App() {
         history.push('/movies');
         setLoggedIn(true);
         handleSignIn(password, email)
+        console.log(loggedIn)
       })
       .catch((err) => {
         console.log(err);
         setIsError(err);
-        setLoggedIn(false);
+
       })
   }
 
@@ -185,7 +189,7 @@ function App() {
         setLoggedIn(false);
         history.push('/');
         setCurrentUser({ email: '', name: '' });
-        localStorage.removeItem('foundMovies');
+        // localStorage.removeItem('foundMovies');
         localStorage.removeItem('movies');
         localStorage.removeItem('savedMovies');
         setMovies([]);
@@ -197,10 +201,9 @@ function App() {
 
   function handleSignIn(password, email) {
     Auth.authorize(password, email)
-      .then(() => {
+      .then((res) => {
         setLoggedIn(true);
         history.push('/movies');
-
       })
       .catch((err) => {
         setIsError(err);

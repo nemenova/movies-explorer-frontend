@@ -69,7 +69,9 @@ class Api {
     }
 }
 const api = new Api({
-    baseUrl: 'http://backend.nemenova.nomoredomains.club',
+    // backend.nemenova.nomoredomains.club
+    //localhost:3000
+    baseUrl: 'https://backend.nemenova.nomoredomains.club',
     headers: {
         'Content-Type': 'application/json',
     },

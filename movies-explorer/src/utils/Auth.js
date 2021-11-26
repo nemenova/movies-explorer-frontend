@@ -1,5 +1,6 @@
-export const BASE_URL = 'http://backend.nemenova.nomoredomains.club';
-
+export const BASE_URL = 'https://backend.nemenova.nomoredomains.club';
+//backend.nemenova.nomoredomains.club
+// localhost:3000
 function checkResponse(res) {
     if (res.ok) {
         return res.json();
