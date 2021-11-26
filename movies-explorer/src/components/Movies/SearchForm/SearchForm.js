@@ -22,7 +22,7 @@ function Search({ onSearch, onShortSearch, onChecking }) {
       setSearchError(errors.key);
     }
   }
-  function handleShortSearch(isChecked) {
+  function handleShortSearch() {
     setIsChecked(!isChecked)
     onChecking(isChecked)
     onShortSearch(isChecked);
