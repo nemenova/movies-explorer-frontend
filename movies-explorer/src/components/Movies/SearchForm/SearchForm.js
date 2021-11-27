@@ -3,7 +3,7 @@ import { useState } from 'react';
 import useFormWithValidation from '../../../utils/useFormValidation';
 
 
-function Search({ onSearch, onShortSearch, onChecking }) {
+function Search({ onSearch, onShortSearch }) {
   const [isChecked, setIsChecked] = React.useState(false);
 
   const { values, handleChange, errors, isValid } = useFormWithValidation({
@@ -24,9 +24,7 @@ function Search({ onSearch, onShortSearch, onChecking }) {
   }
   function handleShortSearch() {
     setIsChecked(!isChecked)
-    onChecking(isChecked)
-    onShortSearch(isChecked);
-
+    onShortSearch(!isChecked);
   }
 
   return (

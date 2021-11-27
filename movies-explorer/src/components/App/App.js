@@ -14,7 +14,6 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as Auth from '../../utils/Auth';
-import { shortDuration } from '../../utils/constants';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
@@ -27,7 +26,6 @@ function App() {
   const [savedMoviesId, setSavedMoviesId] = React.useState([]);
   const [isErrorOccured, setIsErrorOccured] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [isChecked, setIsChecked] = React.useState(false);
   const [movies, setMovies] = React.useState(localStorage.getItem('movies') ?
     JSON.parse(localStorage.getItem('movies'))
     : []
@@ -83,40 +81,6 @@ function App() {
         setIsLoading(false);
       });
   }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  function handleShortSearch(checked) {
-    setIsLoading(true);
-    getMovies()
-      .then((res) => {
-        console.log(res)
-        if (checked) {
-          const shortCards = res.filter((movie) => {
-            return movie.duration < shortDuration
-          });
-          setMovies(shortCards);
-          if (shortCards.length < 1) {
-            setIsEmpty(true)
-          }
-        } else if (!checked) {
-          setMovies(JSON.parse(localStorage.getItem('movies')));
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-        setIsErrorOccured(true)
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }
-  
-  React.useEffect(() => {
-    if (isChecked) {
-      handleShortSearch(isChecked)
-    }
-    return
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isChecked]);
 
   // saved films search
   function handleSavedSearch(keyWord) {
@@ -130,37 +94,13 @@ function App() {
     }
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  function handleSavedShortSearch(checked) {
-    if (checked) {
-      const shortCards = savedMovies.filter((movie) => {
-        return movie.duration < shortDuration
-      });
-      setSavedMovies(shortCards);
-      if (shortCards.length < 1) {
-        setIsEmpty(true)
-      }
-    }
-    else if (!checked) {
-      setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')))
-    }
-  }
-
-  React.useEffect(() => {
-    if (isChecked) {
-      handleSavedShortSearch(isChecked)
-    }
-    return
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isChecked]);
-
   // film saving
   const handleSaveMovie = (movie) => {
     api.saveMovie(movie)
       .then((res) => {
         setSavedMoviesId([...savedMoviesId, res.nameRU]);
         setSavedMovies([...savedMovies, res]);
-        localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+        // localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
       })
       .catch((err) => {
         console.error(err);
@@ -222,7 +162,6 @@ function App() {
         console.log(err);
         setIsError(err);
       })
-
   };
   // like and dislike movie
   function deleteMovie(movie) {
@@ -259,9 +198,7 @@ function App() {
           onSave={handleSaveMovie}
           onSearch={handleSearch}
           isEmpty={isEmpty}
-          onShortSearch={handleShortSearch}
           onDelete={deleteMovie}
-          onChecking={setIsChecked}
         >
 
           <Footer />
@@ -273,12 +210,9 @@ function App() {
           isErrorOccured={isErrorOccured}
           isLoading={isLoading}
           onSearch={handleSavedSearch}
-          onShortSearch={handleSavedShortSearch}
-          onChecking={setIsChecked}
           isEmpty={isEmpty}
           onDelete={deleteMovie}
         >
-
           <Footer />
         </ ProtectedRoute>
         <ProtectedRoute path="/profile"
@@ -294,7 +228,6 @@ function App() {
           isError={isError}
           isSuccess={isSuccess}
         >
-
         </ ProtectedRoute>
         <Route path="/signup">
           <Register onRegister={handleRegister} isError={isError} />
