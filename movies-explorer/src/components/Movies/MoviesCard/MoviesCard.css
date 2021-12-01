@@ -14,6 +14,10 @@
   font-size: 10px;
   cursor: pointer;
   z-index: 3;
+  opacity: 0;
+}
+.card__save-btn-active{
+  opacity: 1;
 }
 .card__saved {
   width: 21px;
@@ -27,18 +31,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: #ee3465;
-}
-.card-btn:hover {
-  opacity: 1;
-}
-.card-btn {
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
-  cursor: pointer;
 }
 .card__title {
   font-weight: 500;

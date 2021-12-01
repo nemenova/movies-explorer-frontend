@@ -15,6 +15,10 @@
   background-color: #313131;
   z-index: 2;
   cursor: pointer;
+  opacity: 0;
+}
+.card__delete-btn-active{
+  opacity: 1;
 }
 .card__image {
   width: 360px;

@@ -12,23 +12,25 @@ function EditProfile({ onEditProfile, loggedIn, isError, isSuccess }) {
         email,
     });
     const [isUpdated, setIsUpdated] = useState(false);
-
+    const [successMsg, setSuccessMsg] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
     function onEditSubmit(evt) {
         evt.preventDefault();
-        console.log(evt)
         const { email, name } = values;
         onEditProfile({ email, name });
+        setSuccessMsg("Ура! Ваш профиль обновлен.")
+        setErrorMsg("При обновлении профиля произошла ошибка.")
     };
-
-
+    React.useEffect(() => {
+        setSuccessMsg("");
+        setErrorMsg("");
+      }, []);
 
     useEffect(() => {
-        if (!(values.name === name) || (!(values.email === email) && isValid)) {
-            setIsUpdated(true);
-        }
-
-    }, [values.name, values.email, name, email, isValid]);
-
+        setIsUpdated(
+          (!(values.name === name) || !(values.email === email))
+        );
+      }, [values.name, values.email, name, email]);
 
 
     return (
@@ -59,9 +61,9 @@ function EditProfile({ onEditProfile, loggedIn, isError, isSuccess }) {
                                 <span className="welcome__error">{errors.email}</span>
                             </ul>
                         </fieldset>
-                        {isSuccess ? (<span className="profile__success">Ура! Ваш профиль обновлен.</span>) : null}
-                        {isError ? (<span className="profile__error">При обновлении профиля произошла ошибка.</span>) : null}
-                        <button type='submit' className={`${isValid ? 'welcome__submit-btn btn-opacity-change' : 'welcome__submit-btn_disabled'}`} disabled={!isUpdated && !isValid}>Сохранить</button>
+                        {isSuccess ? (<span className="profile__success">{successMsg}</span>) : null}
+                        {isError ? (<span className="profile__error">{errorMsg}</span>) : null}
+                        <button type='submit' className={`${isValid && isUpdated ? 'welcome__submit-btn btn-opacity-change' : 'welcome__submit-btn_disabled'}`} disabled={!isUpdated && !isValid}>Сохранить</button>
                     </ form>
 
                 </div>

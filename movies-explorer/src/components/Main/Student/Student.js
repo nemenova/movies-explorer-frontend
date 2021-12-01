@@ -1,6 +1,5 @@
 import React from 'react';
 import Portfolio from '../Portfolio/Portfolio'
-import { Link } from 'react-router-dom';
 import StudentAvatar from '../../../images/studentPhoto.png'
 
 function Student() {
@@ -24,14 +23,20 @@ function Student() {
                             компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься
                             фриланс-заказами и ушёл с постоянной работы.</p>
                         <address className="student__social-media">
-                            <Link to="/https://www.facebook.com/" href="#" className="student__social-media-link btn-opacity-change">Facebook</Link>
-                            <Link to="/https://github.com/nemenova" href="#" className="student__social-media-link btn-opacity-change">Github</Link>
+                            <a href="https://www.facebook.com"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="student__social-media-link btn-opacity-change">Facebook</a>
+                            <a href="https://github.com/nemenova"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="student__social-media-link btn-opacity-change">Github</a>
                         </address>
                     </div>
                     <img src={StudentAvatar} alt="фото" className="student__avatar" />
                 </div>
                 <Portfolio />
-                </div>
+            </div>
         </section>
     )
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory, useLocation, Redirect } from 'react-router-dom';
 import api from '../../utils/MainApi';
 import getMovies from '../../utils/MoviesApi';
 import Main from '../Main/Main';
@@ -30,20 +30,47 @@ function App() {
     JSON.parse(localStorage.getItem('movies'))
     : []
   );
+  // const { path, url } = useRouteMatch();
+  const location = useLocation();
 
   React.useEffect(() => {
     Auth.checkToken()
       .then((res) => {
         if (res) {
           setLoggedIn(true);
-          history.push('/movies')
+          history.push(location.pathname)
+          // window.history.go(-1)
+
+          // window.onpopstate = function(event) {
+          //   history.replace(`location: ${document.location}, state: ${JSON.stringify(event.state)}`)
+          // }
         }
       })
       .catch((e) => {
         console.log(e);
         setLoggedIn(false)
       });
-  }, [history, loggedIn]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+
+  // const tokenCheck = React.useCallback(() => {
+  //   Auth.checkToken()
+  //     .then((res) => {
+  //       if (res) {
+  //         setLoggedIn(true);
+  //         history.push(location.pathname)
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  // React.useEffect(() => {
+  //   tokenCheck();
+  // }, [tokenCheck]);
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -163,6 +190,9 @@ function App() {
         setIsError(err);
       })
   };
+ 
+
+
   // like and dislike movie
   function deleteMovie(movie) {
     let movieId = savedMovies.filter(
@@ -184,10 +214,7 @@ function App() {
 
     <CurrentUserContext.Provider value={currentUser}>
       <Switch>
-        <Route exact path="/">
-          <Main loggedIn={loggedIn} />
-          <Footer />
-        </ Route>
+
         <ProtectedRoute path="/movies"
           component={Movies}
           loggedIn={loggedIn}
@@ -230,10 +257,20 @@ function App() {
         >
         </ ProtectedRoute>
         <Route path="/signup">
-          <Register onRegister={handleRegister} isError={isError} />
+          {loggedIn ?
+            (<Redirect to='/movies' />)
+            :
+            (<Register onRegister={handleRegister} isError={isError} />)}
         </ Route>
         <Route path="/signin">
-          <Login onLogin={handleSignIn} isError={isError} />
+          {loggedIn ?
+            (<Redirect to='/movies' />)
+            :
+            (<Login onLogin={handleSignIn} isError={isError} />)}
+        </ Route>
+        <Route exact path="/">
+          <Main loggedIn={loggedIn} />
+          <Footer />
         </ Route>
         <Route path="*">
           <NotFound />

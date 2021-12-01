@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 
 function Portfolio() {
@@ -11,19 +10,28 @@ function Portfolio() {
             </span>
             <ul className="portfolio__list">
                 <li>
-                    <Link to="/https://github.com/nemenova" className="portfolio__item btn-opacity-change">
+                    <a href="https://github.com/nemenova"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="portfolio__item btn-opacity-change">
                         Статичный сайт
-                    </Link>
+                    </a>
                 </li>
                 <li>
-                    <Link to="/https://github.com/nemenova" className="portfolio__item btn-opacity-change">
+                    <a href="https://github.com/nemenova"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="portfolio__item btn-opacity-change">
                         Адаптивный сайт
-                    </Link>
+                    </a>
                 </li>
                 <li>
-                    <Link to="/https://github.com/nemenova" className="portfolio__item btn-opacity-change">
+                    <a href="https://github.com/nemenova"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="portfolio__item btn-opacity-change">
                         Одностраничное приложение
-                    </Link>
+                    </a>
                 </li>
             </ul>
         </>
